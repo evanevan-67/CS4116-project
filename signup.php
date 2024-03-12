@@ -1,8 +1,18 @@
 <?php
+
 $servername = "intrysts.free.nf";
 $database = "if0_36142329_intrysts";
 $username = "if0_36142329";
 $password = "eamonnmatt";
+
+$name = $_POST["name"];
+$email = $_POST["email"];
+$password = $_POST["password"];
+$dob = $_POST["dob"];
+$gender = $_POST["gender"];
+$interestedin = $_POST["interestedin"];
+$occupation = $_POST["occupation"];
+$location = $_POST["location"];
 
 //Create Connection
 $conn = mysqli_connect($servername, $username, $password, $database);
