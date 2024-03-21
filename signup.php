@@ -21,11 +21,11 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 echo "Connected successfully";
-$sql = "INSERT INTO users (name, email, password) VALUES ($name, $email, $password)";
+$sql = "INSERT INTO `users`(`name`, `email`, `password`) VALUES ('$name', '$email', '$password');";
 if (mysqli_query($conn, $sql)) {
      echo "New user record created successfully";
      $userid = mysqli_insert_id($conn);
-     $sql2 = "INSERT INTO profiles (userid, name, dob, gender, interestedin, occupation, location) VALUES ('$userid', '$name', '$dob', '$gender', '$interestedin', '$occupation', '$location')";
+     $sql2 = "INSERT INTO `profiles`(`userid`, `name`, `dob`, `gender`, `interestedin`, `occupation`, `location`) VALUES ('$userid', '$name', '$dob', '$gender', '$interestedin', '$occupation', '$location');";
      if (mysqli_query($conn, $sql2)) {
         echo "New profile record created successfully";
    } else {
