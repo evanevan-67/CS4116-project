@@ -14,6 +14,12 @@ $interestedin = $_POST["interestedin"];
 $occupation = $_POST["occupation"];
 $location = $_POST["location"];
 
+//Verify email format
+$email = $_POST["email"];
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $emailErr = "Invalid email format";
+}
+
 //Create Connection
 $conn = mysqli_connect($servername, $dbusername, $dbpassword, $database);
 // Check the connection
