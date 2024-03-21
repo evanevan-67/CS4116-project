@@ -34,8 +34,7 @@ if ($result) {
         
         // Redirect to a dashboard or home page
         header("Location: /myprofile.html");
-        mysqli_close($conn);
-        exit();
+        
 
     } else {
         // Authentication failed
