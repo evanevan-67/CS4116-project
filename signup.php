@@ -1,6 +1,6 @@
 <?php
 
-$servername = "intrysts.free.nf";
+$servername = "sql113.infinityfree.com";
 $database = "if0_36142329_intrysts";
 $dbusername = "if0_36142329";
 $dbpassword = "eamonnmatt";
@@ -33,7 +33,7 @@ if (mysqli_query($conn, $sql)) {
    }
    } 
 
-} else {
+ else {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 mysqli_close($conn);
