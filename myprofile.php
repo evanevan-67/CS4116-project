@@ -15,7 +15,7 @@
           <img src="Images/Intrysts.PNG" alt="Intrysts Logo">
         </a>
         <input type="text" placeholder="Search...">
-        <a href="myprofile.html">My Profile</a>
+        <a href="myprofile.php">My Profile</a>
         <a href="viewprofiles.html">Explore</a>
         <a href="messages.html">Messages</a>
     </div>
@@ -75,6 +75,9 @@
         </div>
         <p>Placeholder text about me</p>
     </div>
+    <?php
+        echo $_SESSION['userid'];
+    ?>
     
 </body>
 </html>

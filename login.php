@@ -33,7 +33,7 @@ if ($result) {
         $_SESSION['userid'] = $userid;
         
         // Redirect to a dashboard or home page
-        header("Location: /myprofile.html");
+        header("Location: /myprofile.php");
         
 
     } else {
