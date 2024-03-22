@@ -80,6 +80,22 @@
             </ul>
         </div>
         <!--Add Interests? Select list?-->
+        <form action="add_interests.php" method="post">
+            <label for="interests">Select your interests:</label><br>
+            <select name="interests[]" id="interests" multiple>
+                <?php
+                include 'db_connect.php';
+        
+                //$user_id = $_SESSION['userid']; 
+                $sql = "SELECT interestid, name FROM interests";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<option value='{$row['id']}'>{$row['name']}</option>";
+                }
+                ?>
+            </select><br>
+            <input type="submit" value="Add Interests">
+        </form>
     </div>
     <div class="aboutme">
         <div id="aboutmeheader">
@@ -87,11 +103,7 @@
         </div>
         <p>Placeholder text about me</p>
     </div>
-    <!--Used this to check if the userid is being properly stored in the session-->
-    <?php
-        
-        echo $_SESSION['userid'];
-    ?>
+    
     
 </body>
 </html>
