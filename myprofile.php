@@ -28,11 +28,13 @@
     <?php
     // Include the database connection file
         include 'db_connect.php';
-        session_start();
-        $user_id = $_SESSION[userid]; 
-        $sql = "SELECT name, dob, location, occupation FROM users WHERE id = $user_id";
-        $result = $conn->query($sql);
-        $row = $result->fetch_assoc();?>
+        
+        $user_id = $_SESSION['userid']; 
+        
+        $sql = "SELECT name, dob, location, occupation FROM profiles WHERE userid = $user_id";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        ?>
         <div class="mydetails">
             <div id="name"><?php echo $row['name']; ?></div>
             <div id="age"><?php     $dob=$row['dob'];
