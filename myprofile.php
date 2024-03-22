@@ -90,7 +90,7 @@
                 $sql = "SELECT interestid, name FROM interests";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<option value='{$row['id']}'>{$row['name']}</option>";
+                    echo "<option value='{$row['interestid']}'>{$row['name']}</option>";
                 }
                 ?>
             </select><br>
@@ -103,7 +103,11 @@
         </div>
         <p>Placeholder text about me</p>
     </div>
-    
+    <!--Used this to check if the userid is being properly stored in the session-->
+    <?php
+        
+        echo $_SESSION['userid'];
+    ?>
     
 </body>
 </html>
