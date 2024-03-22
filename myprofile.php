@@ -22,21 +22,31 @@
     <div class="profilephoto">
         <img src="Images/ProfilePlaceholder.PNG">
     </div>
-    <div class="mydetails">
-        <div id="name">
 
+
+
+    <?php
+    // Include the database connection file
+        include 'db_connect.php';
+        session_start();
+        $user_id = $_SESSION[userid]; 
+        $sql = "SELECT name, dob, location, occupation FROM users WHERE id = $user_id";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();?>
+        <div class="mydetails">
+            <div id="name"><?php echo $row['name']; ?></div>
+            <div id="age"><?php     $dob=$row['dob'];
+                                    $year = (date('Y') - date('Y',strtotime($dob)));
+                                    echo $year;?></div>
+            <div id="location"><?php echo $row['location']; ?></div>
+            <div id="occupation"><?php echo $row['occupation']; ?></div>
+            <button id="editdetails">Edit my details</button>
         </div>
-        <div id="age">
-            
-        </div>
-        <div id="location">
-            
-        </div>
-        <div id="occupation">
-            
-        </div>
-        <button id="editdetails">Edit my details</button>
-    </div>
+        <?php mysqli_close($conn);
+    ?>
+
+
+    
     <div class="myphotos">
         <div id="myphotosheader">
             <p>My photos</p>
@@ -77,7 +87,7 @@
     </div>
     <!--Used this to check if the userid is being properly stored in the session-->
     <?php
-        session_start();
+        
         echo $_SESSION['userid'];
     ?>
     
