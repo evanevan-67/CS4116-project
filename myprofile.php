@@ -75,7 +75,9 @@
         </div>
         <p>Placeholder text about me</p>
     </div>
+    <!--Used this to check if the userid is being properly stored in the session-->
     <?php
+        session_start();
         echo $_SESSION['userid'];
     ?>
     
