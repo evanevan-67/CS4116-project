@@ -1,21 +1,13 @@
 <?php
 session_start();
 
-$servername = "sql113.infinityfree.com";
-$database = "if0_36142329_intrysts";
-$dbusername = "if0_36142329";
-$dbpassword = "eamonnmatt";
+// Include the database connection file
+include 'db_connect.php';
+
 
 $email = $_POST["email"];
 $password = $_POST["password"];
 
-// Create Connection
-$conn = mysqli_connect($servername, $dbusername, $dbpassword, $database);
-// Check the connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-echo "Connected successfully";
 
 $query = "SELECT userid FROM users WHERE email = '$email' AND password = '$password'";
 $result = mysqli_query($conn, $query);
