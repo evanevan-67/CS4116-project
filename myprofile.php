@@ -14,7 +14,7 @@
         <a href="index.html">
           <img src="Images/Intrysts.PNG" alt="Intrysts Logo">
         </a>
-        <input type="text" placeholder="Search...">
+       <!-- <input type="text" placeholder="Search...">-->
         <a href="myprofile.php">My Profile</a>
         <a href="viewprofiles.html">Explore</a>
         <a href="messages.html">Messages</a>
