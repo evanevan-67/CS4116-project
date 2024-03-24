@@ -20,9 +20,10 @@
         <a href="messages.html">Messages</a>
     </div>
     <div class="profilelist">
-        <!--To be populated with a list of accounts-->
+    </div>
+    <!--To be populated with a list of accounts
          <a href="profileview.html">
-            <!--userid needs to be passed to the profileview.html page to populate it-->
+            userid needs to be passed to the profileview.html page to populate it
             <div class="account">
                 <img src="Images/ProfilePlaceholder.PNG">
                 <p id="accountname"></p>
@@ -31,7 +32,49 @@
                 <p id="accountoccupation"></p>
             </div>
         </a>
-    </div>
+    </div>-->
+
+    <script>
+        // Get references to the search select and profile list
+        const searchInterest = document.getElementById('searchInterest');
+        const profileList = document.querySelector('.profilelist');
+    
+        // Function to filter profiles based on selected interest
+        function filterProfiles(selectedInterest) {
+          fetchData().then(profiles => {
+            const filteredProfiles = profiles.filter(profile => {
+              return selectedInterest === "" || profile.interestedin === selectedInterest;
+            });
+            
+          
+            profileList.innerHTML = '';
+            
+      
+            filteredProfiles.forEach(profile => {
+            
+              const profileElement = document.createElement('a');
+              profileElement.href = "profileview.html?userid=" + profile.userid;
+    
+             
+    
+              profileList.appendChild(profileElement);
+            });
+          });
+        }
+    
+     
+        searchInterest.addEventListener('change', (event) => {
+          const selectedInterest = event.target.value;
+          filterProfiles(selectedInterest);
+        });
+    
+        
+        filterProfiles(''); 
+      </script>
+    </body>
+    </html>
+
+
     
 </body>
 </html>
