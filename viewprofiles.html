@@ -21,9 +21,22 @@
     </div>
     <div class="profilelist">
     </div>
-    <!--To be populated with a list of accounts
+    <div class="dropfilter">
+      <button class="dropbtn">Filter by Interests</button>
+      <div class="dropFilter-content">
+        <select id="searchInterest">
+          <option value="">AllInterests</option>
+          <!--interests go here in JS-->
+
+
+        </select>
+      </div>
+    </div>
+
+
+    <!--To be populated with a list of accounts-->
          <a href="profileview.html">
-            userid needs to be passed to the profileview.html page to populate it
+            <!--userid needs to be passed to the profileview.html page to populate it-->
             <div class="account">
                 <img src="Images/ProfilePlaceholder.PNG">
                 <p id="accountname"></p>
@@ -32,7 +45,7 @@
                 <p id="accountoccupation"></p>
             </div>
         </a>
-    </div>-->
+    </div>
 
     <script>
         // Get references to the search select and profile list
@@ -67,12 +80,22 @@
           const selectedInterest = event.target.value;
           filterProfiles(selectedInterest);
         });
-    
+
+        //Populate dropdown options
+        function populateDropdownOptions(interests){
+          const dropdown = document.getElementById('searchInterest');
+          interests.forEach(interest => {
+            const option = document.createElement('option');
+            option.value = interest;
+            option.textContent = interest;
+            dropdown.appendChild(option);
+          });
+        }
+
+        populateDropdownOptions(['Interest1' , 'Interest2' , 'Interest3']);   
         
         filterProfiles(''); 
       </script>
-    </body>
-    </html>
 
 
     

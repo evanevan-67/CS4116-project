@@ -17,35 +17,42 @@ $location = $_POST["location"];
 $email = $_POST["email"];
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   $emailErr = "Invalid email format";
+  exit;
 }
+
+$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
 //$sql = "INSERT INTO `users`(`name`, `email`, `password`) VALUES ('$name', '$email', '$password');";
 
 $stmt = $conn->prepare("INSERT INTO `users` (`name`, `email`, `password`) VALUES (?, ?, ?)");
 $stmt->bind_param('sss', $name, $email, $hashedPassword);
 
-$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
 
-if (mysqli_query($conn, $sql)) {
+if ($stmt->execute()) {
      echo "New user record created successfully";
-     $userid = mysqli_insert_id($conn);
+     $userid = $stmt->insert_id;
 
      //$sql2 = "INSERT INTO `profiles`(`userid`, `name`, `dob`, `gender`, `interestedin`, `occupation`, `location`) VALUES ('$userid', '$name', '$dob', '$gender', '$interestedin', '$occupation', '$location');";
 
+     //Insert user's profile data
      $stmt2 = $conn->prepare("INSERT INTO `profiles`(`userid`, `name`, `dob`, `gender`, `interestedin`, `occupation`, `location`) VALUES (?, ?, ?, ?, ?, ?, ?)");
      $stmt2->bind_param('sssssss', $userid, $name, $dob, $gender, $interestedin, $occupation, $location);
-     if (mysqli_query($conn, $sql2)) {
+
+     if ($stmt2->execute()) {
         echo "New profile record created successfully";
         session_start();
         $_SESSION['userid'] = $userid;
    } else {
-        echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
+        echo "Error: " . $stmt2->error;
    }
    } 
 
  else {
-     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+     echo "Error: " . $stmt->error;
 }
-mysqli_close($conn);
+
+$stmt->close();
+$stmt2->close();
+$conn->close();
 ?>
