@@ -23,6 +23,15 @@
         </form>
         
     </div>
+
+    <?php
+        if (!isset($_SESSION['userid'])) {
+                // Redirect the user to the index.html page
+                header("Location: index.html");
+                exit; 
+            }
+    ?>
+
     <div class="profilephoto">
         <img src="Images/ProfilePlaceholder.PNG">
     </div>
