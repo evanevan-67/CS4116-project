@@ -69,20 +69,21 @@
             <ul><!--Nine interests go here-->
             <?php
             include 'db_connect.php';
-
+            
             $query =    "SELECT interests.name
                         FROM userinterests
                         INNER JOIN interests ON userinterests.interestid = interests.interestid
                         WHERE userinterests.userid = $user_id";
-
-            $result = mysqli_query($connection, $query);
-
+            
+            $result = mysqli_query($conn, $query);
+            
             if ($result) {
         
                 while ($row = mysqli_fetch_assoc($result)) {
-                echo "<li>" . $row['name'] . "</li>";
+                    echo "<li>{$row['name']}</li>";
+
                 }
-    
+                
             } else {
             echo "Error: " . mysqli_error($connection);
             }
