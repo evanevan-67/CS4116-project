@@ -130,9 +130,7 @@
         <?php
             include 'db_connect.php';
             
-            $query =    "SELECT aboutme
-                        FROM profiles
-                        WHERE userid = $_SESSION['userid'];
+            $query = "SELECT aboutme FROM profiles WHERE userid = $user_id";
             
             $result = mysqli_query($conn, $query);
             
@@ -146,7 +144,6 @@
             } else {
             echo "Error: " . mysqli_error($connection);
             }
-
         ?>
         <form action="aboutme.php" method="post">
             <textarea name="aboutme" rows="5" cols="50" maxlength="500" placeholder="Enter your description of yourself (500 characters max)" required></textarea>
