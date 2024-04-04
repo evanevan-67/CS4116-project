@@ -127,7 +127,11 @@
         <div id="aboutmeheader">
             <p>About Me</p>
         </div>
-        <p>Placeholder text about me</p>
+        <form action="aboutme.php" method="post">
+            <textarea name="aboutme" rows="5" cols="50" maxlength="500" placeholder="Enter your description of yourself (500 characters max)" required></textarea>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
     </div>
     <!--Used this to check if the userid is being properly stored in the session-->
     <?php
