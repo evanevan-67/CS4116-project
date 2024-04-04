@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100 vh;
+    background-color: whitesmoke;
+
+}
+
+main{
+    width: 90%;
+    border: 1px solid white;
+    margin: 0 auto;
+}
+
+.list{
+    padding: 3rem;
+}
+
+.line{
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.line:hover{
+    box-shadow: 0 0 0.8rem pink;
+}
+
+.name{
+    font-size: 1.5rem;
+    color: black;
+}
+
+.email{
+    font-size: 0.8rem;
+    color: black;
+}
+
+p{
+    font-size: 0.8rem;
+    color: black;
+    font-weight:500;
+}
+
+.user{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile img{
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user .details{
+    margin-left: 1.5rem;
+    line-height: 1.3;
+    text-transform: capitalize;
+}
+
+.status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.status span{
+    display: inline-block;
+    width: 0.35rem;
+    height: 0.35rem;
+    border-radius: 50%;
+    background-color: green;
+}
+
+.status p {
+    margin-left: 0.5rem;
+}
+
+.status .inactive{
+    background-color:red;
+}
+
+.btn{
+    display: inline-block;
+    background-color: pink;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 0.2rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+.icon span{
+    display: block;
+    width: 0.35;
+    height: 0.35;
+    border-radius: 50%;
+    background-color: grey;
+    margin: 0.3rem;
+}
