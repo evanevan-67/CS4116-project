@@ -36,20 +36,26 @@
     <div class="profilephoto">
         <img src="Images/ProfilePlaceholder.PNG">
     </div>
-    <div class="userdetails">
-        <div id="name">
-
+    <?php
+    // Include the database connection file
+        include 'db_connect.php';
+        
+        $profile_id = $_GET['profileid']; 
+        
+        $sql = "SELECT name, dob, location, occupation FROM profiles WHERE userid = $profile_id";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        ?>
+        <div class="userdetails">
+            <div id="name"><?php echo $row['name']; ?></div>
+            <div id="age"><?php     $dob=$row['dob'];
+                                    $year = (date('Y') - date('Y',strtotime($dob)));
+                                    echo $year;?></div>
+            <div id="location"><?php echo $row['location']; ?></div>
+            <div id="occupation"><?php echo $row['occupation']; ?></div>
         </div>
-        <div id="age">
-            
-        </div>
-        <div id="location">
-            
-        </div>
-        <div id="occupation">
-            
-        </div>
-    </div>
+        <?php mysqli_close($conn);
+        ?>
     <div class="photos">
         <div id="photosheader">
             <p>Photos</p>
@@ -68,15 +74,28 @@
         <div id="interests">
             <!--Nine interests go here-->
             <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+            <?php
+            include 'db_connect.php';
+            
+            $query =    "SELECT interests.name
+                        FROM userinterests
+                        INNER JOIN interests ON userinterests.interestid = interests.interestid
+                        WHERE userinterests.userid = $profile_id";
+            
+            $result = mysqli_query($conn, $query);
+            
+            if ($result) {
+        
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<li>{$row['name']}</li>";
+
+                }
+                
+            } else {
+            echo "Error: " . mysqli_error($connection);
+            }
+
+            ?>
             </ul>
         </div>
     </div>
@@ -84,7 +103,24 @@
         <div id="aboutmeheader">
             <p>About Me</p>
         </div>
-        <p>Placeholder text about me</p>
+        <?php
+            include 'db_connect.php';
+            
+            $query = "SELECT aboutme FROM profiles WHERE userid = $profile_id";
+            
+            $result = mysqli_query($conn, $query);
+            
+            if ($result) {
+        
+                $row = mysqli_fetch_assoc($result);
+                echo "<p>{$row['aboutme']}</p>";
+
+                
+                
+            } else {
+            echo "Error: " . mysqli_error($connection);
+            }
+        ?>
     </div>
     <div class="Intrysted">
         <p>Are you Intrysted in !USER!?</p>
