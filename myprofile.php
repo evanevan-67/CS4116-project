@@ -66,18 +66,30 @@
             <p>My Intrysts</p>
         </div>
         <div id="interests">
-            <!--Nine interests go here-->
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+            <ul><!--Nine interests go here-->
+            <?php
+            include 'db_connect.php';
+
+            $query =    "SELECT interests.name
+                        FROM userinterests
+                        INNER JOIN interests ON userinterests.interestid = interests.interestid
+                        WHERE userinterests.userid = $user_id";
+
+            $result = mysqli_query($connection, $query);
+
+            if ($result) {
+        
+                while ($row = mysqli_fetch_assoc($result)) {
+                echo "<li>" . $row['name'] . "</li>";
+                }
+    
+            } else {
+            echo "Error: " . mysqli_error($connection);
+            }
+
+            ?>
             </ul>
+            
         </div>
         <!--Add Interests? Select list?-->
         <form action="add_interests.php" method="post">
