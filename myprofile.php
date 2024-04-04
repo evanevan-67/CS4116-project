@@ -25,11 +25,11 @@
     </div>
 
     <?php
-        if (!isset($_SESSION['userid'])) {
+        /*if (!isset($_SESSION['userid'])) {
                 // Redirect the user to the index.html page
                 header("Location: index.html");
                 exit; 
-            }
+            }*/
     ?>
 
     <div class="profilephoto">
@@ -127,6 +127,27 @@
         <div id="aboutmeheader">
             <p>About Me</p>
         </div>
+        <?php
+            include 'db_connect.php';
+            
+            $query =    "SELECT aboutme
+                        FROM profiles
+                        WHERE userid = $_SESSION['userid'];
+            
+            $result = mysqli_query($conn, $query);
+            
+            if ($result) {
+        
+                $row = mysqli_fetch_assoc($result);
+                echo "<p>{$row['aboutme']}</p>";
+
+                
+                
+            } else {
+            echo "Error: " . mysqli_error($connection);
+            }
+
+        ?>
         <form action="aboutme.php" method="post">
             <textarea name="aboutme" rows="5" cols="50" maxlength="500" placeholder="Enter your description of yourself (500 characters max)" required></textarea>
             <br>
