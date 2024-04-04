@@ -11,15 +11,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Prepare SQL statement to prevent SQL injection
-$stmt = $conn->prepare("SELECT userid FROM users WHERE email = '$email' AND password = '$password'");
-$stmt->bind_param('s', $email);
+// Prepare SQL statement with placeholder for email
+$stmt = $conn->prepare("SELECT userid, password FROM users WHERE email = ?");
+$stmt->bind_param('s', $email); // Bind parameter using 's' for string
+
+// Execute the statement
 $stmt->execute();
-$result = $stmt->get_result(); 
+
+// Get result set
+$result = $stmt->get_result();
+
+// Proceed with further operations
+
+
 
 if ($result && $result->num_rows > 0) {
+    
+    echo $result->num_rows;
        $row = $result->fetch_assoc();
        $hashedPassword = $row['password']; // Get the stored hashed password
-       
+       echo 2;
        // Verify password
        if (password_verify($password, $hashedPassword)) {
       

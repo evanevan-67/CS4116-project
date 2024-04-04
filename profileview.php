@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intrysts - My Profile</title>
+    <title>Intrysts - Profile View</title>
     <!--<link rel="stylesheet"  href=“https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
                             integrity=“sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh”
                             crossorigin="anonymous">>-->
     <link rel="stylesheet" href="style.css">                           
 </head>
 <body>
+    <!--If userid not found, return to explore page?-->
     <div class="navbar">
         <a href="index.html">
           <img src="Images/Intrysts.PNG" alt="Intrysts Logo">
         </a>
-       <!-- <input type="text" placeholder="Search...">-->
+        <!--<input type="text" placeholder="Search...">-->
         <a href="myprofile.php">My Profile</a>
         <a href="viewprofiles.html">Explore</a>
         <a href="messages.html">Messages</a>
@@ -25,68 +26,61 @@
     </div>
 
     <?php
-        /*if (!isset($_SESSION['userid'])) {
+        if (!isset($_SESSION['userid'])) {
                 // Redirect the user to the index.html page
                 header("Location: index.html");
                 exit; 
-            }*/
+            }
     ?>
-
+    
     <div class="profilephoto">
         <img src="Images/ProfilePlaceholder.PNG">
     </div>
-
-
-
     <?php
     // Include the database connection file
         include 'db_connect.php';
         
-        $user_id = $_SESSION['userid']; 
+        $profile_id = $_GET['profileid']; 
         
-        $sql = "SELECT name, dob, location, occupation FROM profiles WHERE userid = $user_id";
+        $sql = "SELECT name, dob, location, occupation FROM profiles WHERE userid = $profile_id";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         ?>
-        <div class="mydetails">
+        <div class="userdetails">
             <div id="name"><?php echo $row['name']; ?></div>
             <div id="age"><?php     $dob=$row['dob'];
                                     $year = (date('Y') - date('Y',strtotime($dob)));
                                     echo $year;?></div>
             <div id="location"><?php echo $row['location']; ?></div>
             <div id="occupation"><?php echo $row['occupation']; ?></div>
-            <button id="editdetails">Edit my details</button>
         </div>
         <?php mysqli_close($conn);
-    ?>
-
-
-    
-    <div class="myphotos">
-        <div id="myphotosheader">
-            <p>My photos</p>
+        ?>
+    <div class="photos">
+        <div id="photosheader">
+            <p>Photos</p>
         </div>
         <div class="photoslist">
             <img src="Images/ProfilePlaceholder.PNG">
             <img src="Images/ProfilePlaceholder.PNG">
             <img src="Images/ProfilePlaceholder.PNG">
         </div>
-        <button id="editmyphotos">Edit My Photos</button>
 
     </div>
-    <div class="myinterests">
+    <div class="interests">
         <div id="interestsheader">
-            <p>My Intrysts</p>
+            <p>Intrysts</p>
         </div>
         <div id="interests">
-            <ul><!--Nine interests go here-->
+            <!--Nine interests go here-->
+            <ul>
             <?php
             include 'db_connect.php';
             
             $query =    "SELECT interests.name
                         FROM userinterests
                         INNER JOIN interests ON userinterests.interestid = interests.interestid
-                        WHERE userinterests.userid = $user_id";
+                        WHERE userinterests.userid = $profile_id";
             
             $result = mysqli_query($conn, $query);
             
@@ -103,25 +97,7 @@
 
             ?>
             </ul>
-            
         </div>
-        <!--Add Interests? Select list?-->
-        <form action="add_interests.php" method="post">
-            <label for="interests">Select your interests:</label><br>
-            <select name="interests[]" id="interests" multiple>
-                <?php
-                include 'db_connect.php';
-        
-                //$user_id = $_SESSION['userid']; 
-                $sql = "SELECT interestid, name FROM interests";
-                $result = mysqli_query($conn, $sql);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<option value='{$row['interestid']}'>{$row['name']}</option>";
-                }
-                ?>
-            </select><br>
-            <input type="submit" value="Add Interests">
-        </form>
     </div>
     <div class="aboutme">
         <div id="aboutmeheader">
@@ -130,7 +106,7 @@
         <?php
             include 'db_connect.php';
             
-            $query = "SELECT aboutme FROM profiles WHERE userid = $user_id";
+            $query = "SELECT aboutme FROM profiles WHERE userid = $profile_id";
             
             $result = mysqli_query($conn, $query);
             
@@ -145,17 +121,21 @@
             echo "Error: " . mysqli_error($connection);
             }
         ?>
-        <form action="aboutme.php" method="post">
-            <textarea name="aboutme" rows="5" cols="50" maxlength="500" placeholder="Enter your description of yourself (500 characters max)" required></textarea>
-            <br>
-            <input type="submit" value="Submit">
-        </form>
     </div>
-    <!--Used this to check if the userid is being properly stored in the session-->
-    <?php
-        
-        echo $_SESSION['userid'];
-    ?>
+    <div class="Intrysted">
+        <p>Are you Intrysted in !USER!?</p>
+        <div class="connectionbox">
+            <button><img src="Images/tickbox.jpg"></button>
+            <button><img src="Images/xbox.jpg"></button>
+            <!--Positive and negative boxes?-->
+        </div>
+    </div>
+    <div class="matchstatussection">
+        <h1 class="matchstatusheader">Match Status</h1>
+        <p id="matchstatus">Unknown</p><!--Dynamically created text-->
+        <button id="messagebutton">Message</button>
+        <button id="blockbutton">Block/Report</button>
+    </div>
     
 </body>
 </html>

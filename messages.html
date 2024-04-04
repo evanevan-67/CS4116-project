@@ -18,7 +18,20 @@
     <a href="myprofile.php">My Profile</a>
     <a href="viewprofiles.html">Explore</a>
     <a href="messages.html">Messages</a>
+    <form action="signout.php" method="post">
+        <button type="submit">Sign Out</button>
+    </form>
+    
 </div>
+
+<?php
+if (!isset($_SESSION['userid'])) {
+        // Redirect the user to the index.html page
+        header("Location: index.html");
+        exit; 
+    }
+?>
+
 </div>
    
     <div class="conversationslist">
