@@ -17,7 +17,7 @@
     <!--<input type="text" placeholder="Search...">-->
     <a href="myprofile.php">My Profile</a>
     <a href="viewprofiles.html">Explore</a>
-    <a href="messages.html">Messages</a>
+    <a href="messages.php">Messages</a>
     <form action="signout.php" method="post">
         <button type="submit">Sign Out</button>
     </form>
@@ -35,7 +35,37 @@ if (!isset($_SESSION['userid'])) {
 </div>
    
     <div class="conversationslist">
-        <p>Connections</p>
+        <h1>Connections</h1>
+        <?php
+            include 'db_connect.php';
+        
+            $user_id = $_SESSION['userid'];
+
+            $sql = "SELECT conversationid FROM conversations WHERE user1id = $user_id OR user2id = $user_id";
+            $result = mysqli_query($conn, $sql);
+                
+            
+            
+            while ($row = mysqli_fetch_assoc($result)) {
+                    if (user_id == $row['user1id') {
+                        $match_id = $row['user2id'];
+                        $sql2 = "SELECT name FROM profiles WHERE userid = $match_id";
+                        $result2 = mysqli_query($conn, $sql2);
+                        echo <li> $result2 </li>
+                        ;
+                    }
+
+
+                    
+                }
+
+
+
+
+
+
+
+        ?>
         <!--List to be populated with clickable matches from database opening the relevant chat-->
     </div>
     <div class="chatbox">
