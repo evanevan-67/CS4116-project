@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intrysts - Explore</title>
-    <!--<link rel="stylesheet"  href=“https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-                            integrity=“sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh”
-                            crossorigin="anonymous">>-->
-    <link rel="stylesheet" href="style.css">                           
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="navbar">
@@ -19,84 +13,15 @@
         <a href="viewprofiles.html">Explore</a>
         <a href="messages.html">Messages</a>
     </div>
-    <div class="profilelist">
-    </div>
-    <div class="dropfilter">
-      <button class="dropbtn">Filter by Interests</button>
-      <div class="dropFilter-content">
-        <select id="searchInterest">
-          <option value="">AllInterests</option>
-          <!--interests go here in JS-->
 
-
-        </select>
+    <div class="dropdown">
+      <button>Interests</button>
+      <div class="content">
+        <a href="">Gaming</a>
+        <a href="">Music</a>
+        <a href="">Football</a>
       </div>
     </div>
-
-
-    <!--To be populated with a list of accounts-->
-         <a href="profileview.html">
-            <!--userid needs to be passed to the profileview.html page to populate it-->
-            <div class="account">
-                <img src="Images/ProfilePlaceholder.PNG">
-                <p id="accountname"></p>
-                <p id="accountage"></p>
-                <p id="accountlocation"></p>
-                <p id="accountoccupation"></p>
-            </div>
-        </a>
-    </div>
-
-    <script>
-        // Get references to the search select and profile list
-        const searchInterest = document.getElementById('searchInterest');
-        const profileList = document.querySelector('.profilelist');
-    
-        // Function to filter profiles based on selected interest
-        function filterProfiles(selectedInterest) {
-          fetchData().then(profiles => {
-            const filteredProfiles = profiles.filter(profile => {
-              return selectedInterest === "" || profile.interestedin === selectedInterest;
-            });
-            
-          
-            profileList.innerHTML = '';
-            
-      
-            filteredProfiles.forEach(profile => {
-            
-              const profileElement = document.createElement('a');
-              profileElement.href = "profileview.html?userid=" + profile.userid;
-    
-             
-    
-              profileList.appendChild(profileElement);
-            });
-          });
-        }
-    
-     
-        searchInterest.addEventListener('change', (event) => {
-          const selectedInterest = event.target.value;
-          filterProfiles(selectedInterest);
-        });
-
-        //Populate dropdown options
-        function populateDropdownOptions(interests){
-          const dropdown = document.getElementById('searchInterest');
-          interests.forEach(interest => {
-            const option = document.createElement('option');
-            option.value = interest;
-            option.textContent = interest;
-            dropdown.appendChild(option);
-          });
-        }
-
-        populateDropdownOptions(['Interest1' , 'Interest2' , 'Interest3']);   
-        
-        filterProfiles(''); 
-      </script>
-
 
     
 </body>
