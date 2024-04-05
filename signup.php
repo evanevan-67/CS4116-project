@@ -43,6 +43,11 @@ if ($stmt->execute()) {
         echo "New profile record created successfully";
         session_start();
         $_SESSION['userid'] = $userid;
+        $stmt->close();
+        $stmt2->close();
+        $conn->close();
+        header("Location: profileview.html");
+        exit;
    } else {
         echo "Error: " . $stmt2->error;
    }
