@@ -17,7 +17,7 @@
        <!-- <input type="text" placeholder="Search...">-->
         <a href="myprofile.php">My Profile</a>
         <a href="viewprofiles.html">Explore</a>
-        <a href="messages.html">Messages</a>
+        <a href="messages.php">Messages</a>
         <form action="signout.php" method="post">
             <button type="submit">Sign Out</button>
         </form>
