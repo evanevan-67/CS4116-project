@@ -123,7 +123,25 @@
         ?>
     </div>
     <div class="Intrysted">
-        <p>Are you Intrysted in !USER!?</p>
+        <p>Are you Intrysted in 
+            <?php
+            include 'db_connect.php';
+            
+            $query = "SELECT name FROM profiles WHERE userid = $profile_id";
+            
+            $result = mysqli_query($conn, $query);
+            
+            if ($result) {
+        
+                $row = mysqli_fetch_assoc($result);
+                echo "{$row['name']}";
+
+                
+                
+            } else {
+            echo "Error: " . mysqli_error($connection);
+            }
+        ?></p>
         <div class="connectionbox">
             <button><img src="Images/tickbox.jpg"></button>
             <button><img src="Images/xbox.jpg"></button>
