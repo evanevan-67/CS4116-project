@@ -3,7 +3,7 @@
 include db_connect.php;
 
 $userid = $_SESSION['userid'];
-$query = "SELECT interestedin FROM profiles WHERE userid = $userid"
+$query = "SELECT interestedin FROM profiles WHERE userid = $userid";
 $result = mysqli_query($conn, $query);
 
 if ($row = mysqli_fetch_assoc($result)) {
@@ -21,6 +21,7 @@ $result2 = mysqli_query($conn, $query2);
 if(mysqli_num_rows($result2) > 0) {
     // Output data of each row
     while($row = mysqli_fetch_assoc($result2)) {
+        echo '<div class="line">';
         echo '<div class="user">';
         // echo '<div class="profile"><img src="' . $row['profilepicture'] . '" alt="Profile Picture" class="profile-picture"></div>';
         echo '<div class="details">';
@@ -33,6 +34,7 @@ if(mysqli_num_rows($result2) > 0) {
         echo '<div class="location">' . $row['location'] . '</div>';
         echo '</div>'; // Closing details div
         echo '</div>'; // Closing user div
+        echo '</div>'; // closing line div
     }
   } else {
     echo "No matching profiles found for this user.";
