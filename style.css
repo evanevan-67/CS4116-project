@@ -85,3 +85,21 @@
 .dropdown a:hover{
   background-color: pink;
 }
+
+.chat-list {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+}
+.chat-box {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+.message-input {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  border-left: 1px solid #ccc;
+}

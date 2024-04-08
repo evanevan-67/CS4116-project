@@ -27,4 +27,6 @@ while ($row = $result->fetch_assoc()) {
 // Close statement and database connection
 $stmt->close();
 $conn->close();
+
+
 ?>

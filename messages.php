@@ -32,6 +32,63 @@ if (!isset($_SESSION['userid'])) {
     }
 ?>
 
+
+<div class="chat-list">
+    <h2>Chat Options</h2>
+    <ul>
+        <?php
+        
+        include 'db_connect.php';
+        // Retrieve chat options where user1id or user2id match $userid
+        $userid = $_SESSION['userid'];
+        $sql = "SELECT chatid, user1id, user2id FROM chats WHERE user1id = ? OR user2id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ii", $userid, $userid);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Display chat options
+        while ($row = $result->fetch_assoc()) {
+            $chatid = $row['chatid'];
+            $other_user = ($row['user1id'] == $userid) ? $row['user2id'] : $row['user1id'];
+            
+            $query = "SELECT name FROM profiles WHERE userid = $other_user";
+            $result = mysqli_query($conn, $query);
+            
+            if ($result) {
+                $row = mysqli_fetch_assoc($result);
+                $other_user_name = $row['name'];
+            } else {
+            echo "Error: " . mysqli_error($connection);
+            }
+
+            echo "<li><a href='populate_chat.php?chatid=$chatid&userid=$userid'>$other_user_name</a></li>";
+        }
+
+        // Close statement and database connection
+        $stmt->close();
+        $conn->close();
+        ?>
+    </ul>
+</div>
+
+<div class="chat-box">
+    <!-- Chatbox content will be loaded dynamically based on the selected chat option -->
+</div>
+
+<div class="message-input">
+    <h2>Send Message</h2>
+    <form action="send_message.php" method="post">
+        <input type="hidden" name="userid" value="<?php echo $userid; ?>">
+        <input type="hidden" name="chatid" id="chatid" value="<?php echo $chatid; ?>">
+        <textarea name="message" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Send">
+    </form>
+</div>
+
+
+
+
 </div>
    
     <div class="conversationslist">
