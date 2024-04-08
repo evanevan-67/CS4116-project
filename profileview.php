@@ -143,8 +143,18 @@
             }
         ?></p>
         <div class="connectionbox">
-            <button><img src="Images/tickbox.jpg"></button>
-            <button><img src="Images/xbox.jpg"></button>
+
+        <form action="connections.php" method="get">
+        	<input type="hidden" name="profileid" value="<?php echo $profile_id; ?>">
+            <input type="hidden" name="connection" value="1">
+            <button type="submit"><img src="Images/tickbox.jpg"></button>
+        </form>
+        <form action="connections.php" method="get">
+        	<input type="hidden" name="profileid" value="<?php echo $profile_id; ?>">
+            <input type="hidden" name="connection" value="0">
+            <button type="submit"><img src="Images/xbox.jpg"></button>
+        </form>
+        
             <!--Positive and negative boxes?-->
         </div>
     </div>
