@@ -41,7 +41,7 @@ if (!isset($_SESSION['userid'])) {
         
             $user_id = $_SESSION['userid'];
 
-            $sql = "SELECT conversationid FROM conversations WHERE user1id = $user_id OR user2id = $user_id";
+            $sql = "SELECT chatid, user1id, user2id FROM chats WHERE user1id = $user_id OR user2id = $user_id";
             $result = mysqli_query($conn, $sql);
                 
             
@@ -51,26 +51,26 @@ if (!isset($_SESSION['userid'])) {
                         $match_id = $row['user2id'];
                         $sql2 = "SELECT name FROM profiles WHERE userid = $match_id";
                         $result2 = mysqli_query($conn, $sql2);
-                        echo <li> $result2 </li>
-                        ;
+                        echo "<a href="messages.php?chatid=$row[chatid]?profileid=$match_id"><li> $row[name] </li></a>";
+                        
+                    } else {
+                        $match_id = $row['user1id'];
+                        $sql2 = "SELECT name FROM profiles WHERE userid = $match_id";
+                        $result2 = mysqli_query($conn, $sql2);
+                        echo "<li> $result2 </li>";
+
                     }
 
 
                     
                 }
-
-
-
-
-
-
-
-        ?>
         <!--List to be populated with clickable matches from database opening the relevant chat-->
     </div>
     <div class="chatbox">
         <div class="connectionprofilephoto">
             <img src="Images/ProfilePlaceholder.PNG">
+            
+            
             <p>Placeholder name</p>
             <!--Populate fields with messages from the database connected to this chatid-->
         </div>
