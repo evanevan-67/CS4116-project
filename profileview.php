@@ -160,6 +160,21 @@
     </div>
     <div class="matchstatussection">
         <h1 class="matchstatusheader">Match Status</h1>
+
+        //If connectionstatus is false, read Unknown
+        //If it's a match, read it's a match! and print message me link
+        <?php
+            $query = "SELECT connectionstatus FROM connections WHERE (user1id = $userid OR user1id = $profile_id) 
+                                                                        AND (user2id = $userid OR user2id = $profile_id)";
+            $result = mysqli_query($conn, $query);
+            $row = mysqli_fetch_assoc($result);
+            if ($row['connectionstatus']) {
+                echo '<p id="matchstatus">It\'s a match!</p>';
+                echo '<a href="messages.php">Message me!</a>';
+            } else {
+                echo '<p id="matchstatus">Unknown</p>';
+            }
+        ?>
         <p id="matchstatus">Unknown</p><!--Dynamically created text-->
         <button id="messagebutton">Message</button>
         <button id="blockbutton">Block/Report</button>
