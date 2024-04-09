@@ -69,7 +69,8 @@
 
         // Close statement and database connection
         $stmt->close();
-        $conn->close();
+        
+    
         ?>
     </ul>
 </div>
@@ -80,14 +81,13 @@
         // include 'populate_chat.php';
 
         $currentchatid = $_GET["chatid"];
-
+        
         // Prepare SQL statement to select messages from the messages table for the given chatid, ordered by timestamp
         $sql = "SELECT * FROM messages WHERE chatid = ? ORDER BY timestamp";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $currentchatid);
         $stmt->execute();
         $result3 = $stmt->get_result();
-
         // Output messages
         while ($row3 = $result3->fetch_assoc()) {
         // Determine the CSS class based on whether the message was sent by $userid or not
@@ -102,7 +102,7 @@
         // Close statement and database connection
         $stmt->close();
         $conn->close();
-
+        
 
     ?>
 </div>
@@ -111,7 +111,7 @@
     <h2>Send Message</h2>
     <form action="send_message.php" method="post">
         <input type="hidden" name="userid" value="<?php echo $userid; ?>">
-        <input type="hidden" name="chatid" id="chatid" value="">
+        <input type="hidden" name="chatid" id="chatid" value="<?php echo $currentchatid; ?>">
         <textarea name="message" rows="4" cols="50"></textarea><br>
         <input type="submit" value="Send">
     </form>
