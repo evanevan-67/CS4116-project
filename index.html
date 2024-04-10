@@ -24,11 +24,13 @@
     <div class="login">
     <img src="Images/profileplaceholder.png">
     <form action="/login.php" method="post" class="loginDetails">
-        Email Address:<input required type="email" name="email">
-        <br>
-        Password:<input required ="password" name="password">
-        <br>
-        <input type="submit" value="Submit">
+      <label for="email">Email Address:</label>
+      <input required type="email" name="email" id="email">
+      <br>
+      <label for="password">Password:</label>
+      <input required type="password" name="password" id="password">
+      <br>
+      <input type="submit" value="Submit">
     </form>
     <a href="signup.html">Not registered? Sign up here!</a>
     </div>

@@ -103,3 +103,25 @@
   padding: 10px;
   border-left: 1px solid #ccc;
 }
+
+/* Styling for messages sent by the current user */
+.sent-by-user {
+  background-color: #d581a1; 
+  color: #fad2e0;; 
+  padding: 8px 12px; /* Padding around the message */
+  border-radius: 10px; /* Rounded corners */
+  margin-bottom: 10px; /* Margin between messages */
+  max-width: 70%; /* Maximum width for the message box */
+  align-self: flex-end; /* Right-align messages */
+}
+
+/* Styling for messages sent by other users */
+.sent-by-others {
+  background-color: #fad2e0;
+  color: #d581a1; 
+  padding: 8px 12px; /* Padding around the message */
+  border-radius: 10px; /* Rounded corners */
+  margin-bottom: 10px; /* Margin between messages */
+  max-width: 70%; /* Maximum width for the message box */
+  align-self: flex-start; /* Left-align messages */
+}
