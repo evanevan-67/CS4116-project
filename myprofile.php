@@ -33,7 +33,22 @@
     ?>
 
     <div class="profilephoto">
-        <img src="Images/ProfilePlaceholder.PNG">
+    <?php
+        include 'db_connect.php';
+
+        $user_id = $_SESSION['userid'];
+        
+        $query = "SELECT profilepic FROM profiles WHERE userid = $user_id";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
+        if (empty($row['profilepic'])){
+            echo '<img src="Images/ProfilePlaceholder.PNG">';
+        } else {
+            echo '<img src="' . $row['profilepic'] . '">';
+        }
+
+        mysqli_close($conn);
+        ?>
     </div>
     
     <form action="upload_image.php" method="POST" enctype="multipart/form-data">

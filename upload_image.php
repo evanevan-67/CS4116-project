@@ -19,7 +19,21 @@
                     $fileNameNew = uniqid('', true).".".$fileActualExt;
                     $fileDestination = 'Uploads/'.$fileNameNew;
                     move_uploaded_file($fileTmpName, $fileDestination);
-                    header("Location : myprofile.php?uploadsuccess");
+
+                    include 'db_connect.php';
+
+                    // Prepare SQL statement to update the profilepicture column in the profiles table
+                    $sql = "UPDATE profiles SET profilepicture = '$fileDestination' WHERE userid = '{$_SESSION['userid']}'";
+    
+                    // Execute the SQL statement
+                    if (mysqli_query($conn, $sql)) {
+                        echo "Profile picture updated successfully!";
+                    } else {
+                    echo "Error updating about me: " . mysqli_error($conn);
+                    }
+
+
+                    header("Location: myprofile.php");
                 } else {
                     "Your file is too big!";
                 }
