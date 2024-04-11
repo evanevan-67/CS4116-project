@@ -51,9 +51,12 @@
         ?>
     </div>
     
-    <form action="upload_image.php" method="POST" enctype="multipart/form-data">
-        <input type="file" name = "file">
-        <button type="submit" name="submit">Upload</button>
+    <form action="upload_image.php" method="POST" enctype="multipart/form-data" class="profile-photo-form">
+    <label for="file" class="file-label">
+        <span class="file-icon">+</span> Choose a photo
+    </label>
+    <input type="file" id="file" name="file" class="file-input">
+    <button type="submit" name="submit" class="upload-button">Upload</button>
     </form>
 
 
@@ -125,22 +128,24 @@
             
         </div>
         <!--Add Interests? Select list?-->
-        <form action="add_interests.php" method="post">
-            <label for="interests">Select your interests:</label><br>
-            <select name="interests[]" id="interests" multiple>
-                <?php
-                include 'db_connect.php';
-        
-                //$user_id = $_SESSION['userid']; 
-                $sql = "SELECT interestid, name FROM interests";
-                $result = mysqli_query($conn, $sql);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<option value='{$row['interestid']}'>{$row['name']}</option>";
-                }
-                ?>
-            </select><br>
-            <input type="submit" value="Add Interests">
-        </form>
+        <form action="add_interests.php" method="post" class="interests-form">
+    <div class="form-group">
+        <label for="interests" class="form-label">Select your interests:</label><br>
+        <select name="interests[]" id="interests" multiple class="form-select">
+            <?php
+            include 'db_connect.php';
+
+            //$user_id = $_SESSION['userid']; 
+            $sql = "SELECT interestid, name FROM interests";
+            $result = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<option value='{$row['interestid']}'>{$row['name']}</option>";
+            }
+            ?>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Interests</button>
+</form>
     </div>
     <div class="aboutme">
         <div id="aboutmeheader">
