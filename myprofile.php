@@ -15,6 +15,7 @@
           <img src="Images/Intrysts.PNG" alt="Intrysts Logo">
         </a>
        <!-- <input type="text" placeholder="Search...">-->
+       <a href="aboutus.html">About Us</a>
         <a href="myprofile.php">My Profile</a>
         <a href="exploreprofiles.php">Explore</a>
         <a href="messages.php">Messages</a>
@@ -176,10 +177,11 @@
         </form>
     </div>
     <!--Used this to check if the userid is being properly stored in the session-->
-    <?php
-        
-        echo $_SESSION['userid'];
-    ?>
+    <footer>
+    <div class="container">
+        <p>&copy; 2024 Intrysts. All rights reserved.</p>
+    </div>
+</footer>
     
 </body>
 </html>
