@@ -34,7 +34,7 @@
 
 
 <div class="chat-list">
-    <h2>Chat Options</h2>
+    <h2>Connections</h2>
     <ul>
         <?php
         
@@ -105,17 +105,22 @@
         
 
     ?>
-</div>
+
 
 <div class="message-input">
-    <h2>Send Message</h2>
-    <form action="send_message.php" method="post">
-        <input type="hidden" name="userid" value="<?php echo $userid; ?>">
-        <input type="hidden" name="chatid" id="chatid" value="<?php echo $currentchatid; ?>">
-        <textarea name="message" rows="4" cols="50"></textarea><br>
-        <input type="submit" value="Send">
-    </form>
+    <?php if(isset($_GET["chatid"])): ?>
+        <h2>Send Message</h2>
+        <form action="send_message.php" method="post">
+            <input type="hidden" name="userid" value="<?php echo $userid; ?>">
+            <input type="hidden" name="chatid" id="chatid" value="<?php echo $currentchatid; ?>">
+            <textarea name="message" rows="4" cols="50"></textarea><br>
+            <input type="submit" value="Send">
+        </form>
+    <?php endif; ?>
 </div>
+</div>
+
+
 
 
 <script>
