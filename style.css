@@ -1,26 +1,30 @@
 .navbar {
   background-color: #d581a1; /* Background color */
   overflow: hidden;
-  
   top: 0;
   width: 100%;
+  position: fixed;
+  left: 0;
+  padding: 5px;
+  box-sizing: border-box;
+  z-index: 1000; 
 }
 
 .navbar img {
   height: 50px; /* Adjust height as needed */
-  padding: 10px;
+  padding: 5px;
 }
 
 .navbar input[type=text] {
-  padding: 10px;
-  margin: 8px 0;
+  padding: 5px;
+  margin: 5px 0;
   border: none;
   border-radius: 4px;
 }
 
 .navbar button {
-  padding: 10px;
-  margin: 8px 0;
+  padding: 5px;
+  margin: 5px 0;
   background-color: #dd6b97; /* Green */
   color: white;
   border: none;
@@ -37,7 +41,7 @@
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 20px;
+  padding: 10px 10px;
   text-decoration: none;
 }
 
@@ -121,16 +125,26 @@ align-self: flex-start; /* Left-align messages */
 }
 
 /* Chat list styles */
+
+
 .chat-list {
-  background-color: #ffffff; /* White background */
-  padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  position: fixed;
+  top: 100px; /* Adjust based on navbar height */
+  left: 0;
+  bottom: 0;
+  width: 250px; /* Adjust based on your preference */
+  background-color: #d581a1;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto; 
 }
 
 .chat-list h2 {
   margin-bottom: 10px;
-  color: #333333; /* Dark gray text */
+  color: white;
+  font-family: Optima, Segoe, Segoe UI, Candara, Calibri, Arial, sans-serif;
 }
 
 .chat-list ul {
@@ -152,6 +166,8 @@ align-self: flex-start; /* Left-align messages */
 
 /* Chat box styles */
 .chat-box {
+  position: fixed;
+  top: 100px;
   background-color: #ffffff; /* White background */
   padding: 20px;
   margin-top: 20px;
@@ -159,15 +175,21 @@ align-self: flex-start; /* Left-align messages */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
   max-height: 300px; /* Set max height for scroll */
   overflow-y: auto; /* Enable vertical scroll */
+  margin-left: 270px; /* Adjust based on chat-list width */
+  box-sizing: border-box;
+  width: 75%;
+  height: 400px;
 }
 
 /* Message input styles */
 .message-input {
+  position: fixed;
+  top: 450px;
+  width: 50%;
   background-color: #ffffff; /* White background */
-  padding: 20px;
-  margin-top: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  box-sizing: border-box;
 }
 
 .message-input h2 {
@@ -205,6 +227,7 @@ align-self: flex-start; /* Left-align messages */
 max-width: 400px; /* Limit width of login container */
 margin: 50px auto; /* Center the container */
 padding: 20px; /* Add padding */
+padding-top: 140px;
 background-color: #d581a128; /* White background */
 border-radius: 8px; /* Add rounded corners */
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
@@ -258,6 +281,8 @@ text-decoration: underline; /* Underline link on hover */
 .profilephoto {
   text-align: center; /* Center align profile photo */
   margin-top: 20px; /* Add spacing from navbar */
+  padding-top: 100px;
+
 }
 
 .profilephoto img {
@@ -401,4 +426,78 @@ text-decoration: underline; /* Underline link on hover */
 #editdetails:hover,
 #editmyphotos:hover {
   background-color: #d581a1; /* Darker green on hover */
+}
+
+.interests-form {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #d581a1;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #d581a1;
+  color: #fff;
+  cursor: pointer;
+}
+
+.profile-photo-form {
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.file-label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #d581a1;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.file-label:hover {
+  background-color: #d74e83;
+}
+
+.file-icon {
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #d581a1;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+  background-color: #d74e83;
 }
