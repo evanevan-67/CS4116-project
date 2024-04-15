@@ -79,7 +79,24 @@
                                     echo $year;?></div>
             <div id="location"><?php echo $row['location']; ?></div>
             <div id="occupation"><?php echo $row['occupation']; ?></div>
-            <button id="editdetails">Edit my details</button>
+
+            <form action="update_occupation.php" method="post" id="updateForm"">
+               
+        <label for="occupation">Occupation</label>
+        <input type="text" id="occupation" name="occupation" placeholder="Your occupation" required><br>
+       
+        <button type="submit">Update Occupation</button>
+    </form>
+    <form action="update_location.php" method="post" id="updateForm"">
+         
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" placeholder="Your location" required><br>
+        
+        <button type="submit">Update Location</button>
+    </form>
+
+
+
         </div>
         <?php mysqli_close($conn);
     ?>

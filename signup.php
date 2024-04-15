@@ -46,7 +46,7 @@ if ($stmt->execute()) {
         $stmt->close();
         $stmt2->close();
         $conn->close();
-        header("Location: profileview.html");
+        header("Location: myprofile.php");
         exit;
    } else {
         echo "Error: " . $stmt2->error;
