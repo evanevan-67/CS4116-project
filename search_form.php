@@ -12,7 +12,7 @@ echo '<h2>Search Profiles by Interests:</h2>';
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         // Create a checkbox for each interest
-        echo '<input type="checkbox" name="interests[]" value="' . $row["id"] . '"> ' . $row["interest_name"] . '<br>';
+        echo '<input type="checkbox" name="interests[]" value="' . $row["interestid"] . '"> ' . $row["name"] . ' ';
     }
     // Add a submit button
     echo '<input type="submit" value="Search">';

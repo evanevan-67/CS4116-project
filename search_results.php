@@ -19,20 +19,6 @@
           <button type="submit">Sign Out</button>
         </form>
       
-        <!--<div class="dropdown">
-          <button>Intrysts</button>
-          <div class="content">
-            <a href="">Gaming</a>
-            <a href="">Music</a>
-            <a href="">Horseriding</a>
-            <a href="">Rugby</a>
-            <a href="">Football</a>
-            <a href="">Dancing</a>
-            <a href="">Guitar</a>
-            <a href="">Art</a>
-            <a href="">Coding</a>
-          </div>
-        </div>-->
     </div>
 
     <?php
@@ -43,18 +29,36 @@
             }*/
     ?>
 
+    <?php 
+    
+    $selected_interests = $_POST['interests'];
+
+    foreach($selected_interests as $interest_id) {
+        // Echo each selected interest to the screen
+        // echo "Selected Interest ID: " . $interest_id . "<br>";
+    }
+
+    
+    ?>
 
     <!--Placeholder list of accounts-->
 
-    <div class="search-form">
+    <!--<div class="search-form">
     <?php include 'search_form.php'; ?>
-    </div>
+    </div>-->
     <div class = "list">
         
-      <?php include 'listprofiles.php'; ?>
+      <?php 
+      //echo 1;
+      include 'search_profiles.php'; 
+      // echo 2;
+      
+      ?>
 
 
         </div>
+
+        
     </main>
     
     <footer>
