@@ -19,7 +19,7 @@
     
   </div>
     </div>
-    <form action="/signup.php" method="post">
+    <form action="/signup.php" method="post" id="signupForm" onsubmit="return validateAge()">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="placeholder@intrysts.ie" required><br>
         
@@ -62,5 +62,28 @@
           <p>&copy; 2024 Intrysts. All rights reserved.</p>
       </div>
   </footer>
+  <script>
+    function validateAge() {
+        // Get the value of the date of birth input
+        var dob = document.getElementById('dob').value;
+        
+        // Calculate the age based on the date of birth
+        var today = new Date();
+        var birthDate = new Date(dob);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        
+        // Check if the age is at least 18
+        if (age < 18) {
+            alert('You must be at least 18 years old to sign up.');
+            return false; // Prevent form submission
+        }
+        
+        return true; // Allow form submission
+    }
+  </script>
 </body>
 </html>
