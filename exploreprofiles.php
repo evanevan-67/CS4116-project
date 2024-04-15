@@ -46,6 +46,9 @@
 
     <!--Placeholder list of accounts-->
 
+    <div class="search-form">
+    <?php include 'search_form.php'; ?>
+    </div>
     <div class = "list">
         
       <?php include 'listprofiles.php'; ?>
