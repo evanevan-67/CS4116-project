@@ -44,7 +44,15 @@
     ?>
 
     
-        <div class="range_container">
+       
+    
+    <!--Placeholder list of accounts-->
+
+    <div class="search-form">
+    <?php include 'search_form.php'; ?>
+    </div>
+
+    <div class="range_container">
         <div class="sliders_control">
             <input id="fromSlider" type="range" value="18" min="18" max="120"/>
             <input id="toSlider" type="range" value="120" min="18" max="120"/>
@@ -52,20 +60,15 @@
         <div class="form_control">
             <div class="form_control_container">
                 <div class="form_control_container__time">Min</div>
-                <input class="form_control_container__time__input" type="number" id="fromInput" value="10" min="0" max="100"/>
+                <input class="form_control_container__time__input" type="number" id="fromInput" value="18" min="18" max="120"/>
             </div>
             <div class="form_control_container">
                 <div class="form_control_container__time">Max</div>
-                <input class="form_control_container__time__input" type="number" id="toInput" value="40" min="0" max="100"/>
+                <input class="form_control_container__time__input" type="number" id="toInput" value="120" min="18" max="120"/>
             </div>
         </div>
     </div>
-    
-    <!--Placeholder list of accounts-->
 
-    <div class="search-form">
-    <?php include 'search_form.php'; ?>
-    </div>
     <div class = "list">
         
       <?php include 'listprofiles.php'; ?>
@@ -80,6 +83,7 @@
     </div>
 </footer>
 
+<script>
 function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
     const [from, to] = getParsed(fromInput, toInput);
     fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
@@ -167,7 +171,7 @@ fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
 toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
 fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
 toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
-
+</script>
 
 </body>
 </html>
