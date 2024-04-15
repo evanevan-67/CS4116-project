@@ -49,8 +49,9 @@
         ?>
         <div class="userdetails">
             <div id="name"><?php echo $row['name']; ?></div>
-            <div id="age"><?php     $dob=$row['dob'];
-                                    $year = (date('Y') - date('Y',strtotime($dob)));
+            <div id="age"><?php     $dob = new DateTime($row['dob']);
+                                    $today   = new DateTime('today');
+                                    $year = $dob->diff($today)->y;
                                     echo $year;?></div>
             <div id="location"><?php echo $row['location']; ?></div>
             <div id="occupation"><?php echo $row['occupation']; ?></div>
