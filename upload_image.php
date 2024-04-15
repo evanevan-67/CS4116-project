@@ -23,7 +23,7 @@
                     include 'db_connect.php';
 
                     // Prepare SQL statement to update the profilepicture column in the profiles table
-                    $sql = "UPDATE profiles SET profilepicture = '$fileDestination' WHERE userid = '{$_SESSION['userid']}'";
+                    $sql = "UPDATE profiles SET profilepic = '$fileDestination' WHERE userid = '{$_SESSION['userid']}'";
     
                     // Execute the SQL statement
                     if (mysqli_query($conn, $sql)) {
