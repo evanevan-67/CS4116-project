@@ -57,8 +57,8 @@ if ($result) {
             echo '<div class="name">' . $row['name'] . '</div>';
             // Calculating age from date of birth
             $dob = new DateTime($row['dob']);
-                                    $today   = new DateTime('today');
-                                    $year = $dob->diff($today)->y;
+            $today   = new DateTime('today');
+            $year = $dob->diff($today)->y;
             echo '<div class="age">' . $year . ' years old</div>';
             echo '<div class="occupation">' . $row['occupation'] . '</div>';
             echo '<div class="location">' . $row['location'] . '</div>';

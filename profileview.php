@@ -47,12 +47,12 @@
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         ?>
-        <div class="userdetails">
+        <div class="mydetails">
             <div id="name"><?php echo $row['name']; ?></div>
-            <div id="age"><?php     $dob = new DateTime($row['dob']);
-                                    $today   = new DateTime('today');
-                                    $year = $dob->diff($today)->y;
-                                    echo $year;?></div>
+            <div id="age"><?php $dob = new DateTime($row['dob']);
+                                $today   = new DateTime('today');
+                                $year = $dob->diff($today)->y;
+                                echo $year;?></div>
             <div id="location"><?php echo $row['location']; ?></div>
             <div id="occupation"><?php echo $row['occupation']; ?></div>
         </div>
@@ -146,12 +146,12 @@
         ?></p>
         <div class="connectionbox">
 
-        <form action="connections.php" method="get">
+        <form action="connection.php" method="get">
         	<input type="hidden" name="profileid" value="<?php echo $profile_id; ?>">
             <input type="hidden" name="connection" value="1">
             <button type="submit"><img src="Images/tickbox.jpg"></button>
         </form>
-        <form action="connections.php" method="get">
+        <form action="connection.php" method="get">
         	<input type="hidden" name="profileid" value="<?php echo $profile_id; ?>">
             <input type="hidden" name="connection" value="0">
             <button type="submit"><img src="Images/xbox.jpg"></button>
@@ -163,22 +163,30 @@
     <div class="matchstatussection">
         <h1 class="matchstatusheader">Match Status</h1>
 
-        //If connectionstatus is false, read Unknown
-        //If it's a match, read it's a match! and print message me link
+    
         <?php
-            $query = "SELECT connectionstatus FROM connections WHERE (user1id = $userid OR user1id = $profile_id) 
-                                                                        AND (user2id = $userid OR user2id = $profile_id)";
-            $result = mysqli_query($conn, $query);
+            include 'db_connect.php';
+
+            $userid = $_SESSION['userid'];
+            $profileid = $_GET['profileid'];
+
+
+
+            $sql = "SELECT connectionstatus FROM connections WHERE (user1id = $userid OR user2id = $userid) AND (user1id = $profileid OR user2id = $profileid)";
+            $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
-            if ($row['connectionstatus']) {
-                echo '<p id="matchstatus">It\'s a match!</p>';
-                echo '<a href="messages.php">Message me!</a>';
+
+            // echo  $row['connectionstatus'];
+            
+            if ($row['connectionstatus'] == 1 ){
+                
+                echo '<p class="matchsuccess">It\'s a match!</div>';
+                echo '<a class="matchlink" href="messages.php">Message me!</a>';
             } else {
-                echo '<p id="matchstatus">Unknown</p>';
+                echo '<p class="unknownmatch">Unknown</div>';
             }
+            mysqli_close($conn);
         ?>
-        <p id="matchstatus">Unknown</p><!--Dynamically created text-->
-        <button id="messagebutton">Message</button>
         <button id="blockbutton">Block/Report</button>
     </div>
 

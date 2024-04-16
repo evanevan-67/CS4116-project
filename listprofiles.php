@@ -40,9 +40,9 @@ if(mysqli_num_rows($result2) > 0) {
         echo '<div class="details">';
         echo '<div class="name">' . $row['name'] . '</div>';
       // Calculating age from date of birth
-      $dob = new DateTime($row['dob']);
-      $today   = new DateTime('today');
-      $year = $dob->diff($today)->y;
+        $dob = new DateTime($row['dob']);
+        $today   = new DateTime('today');
+        $year = $dob->diff($today)->y;
         echo '<div class="age">' . $year . ' years old</div>';
         echo '<div class="occupation">' . $row['occupation'] . '</div>';
         echo '<div class="location">' . $row['location'] . '</div>';
