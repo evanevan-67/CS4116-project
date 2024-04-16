@@ -1,3 +1,7 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 .navbar {
 background-color: #d581a1; /* Background color */
 overflow: hidden;
@@ -658,3 +662,48 @@ background-color: #d74e83;
       border: 1px solid #ccc;
       border-radius: 5px;
   }
+
+  /* Style for the form container */
+.signupForm {
+  max-width: 400px;
+  margin: 0 auto;
+  padding-top: 150px;
+}
+
+/* Style for labels */
+.signupForm label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Style for inputs */
+.signupForm input[type="email"],
+.signupForm input[type="password"],
+.signupForm input[type="text"],
+.signupForm input[type="date"],
+.signupForm select {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Style for button */
+.signupForm button {
+  width: 100%;
+  padding: 10px;
+  background-color: #d581a1; /* Bright green */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Style for button on hover */
+.signupForm button:hover {
+  background-color: #d74e83; /* Darker green on hover */
+}
