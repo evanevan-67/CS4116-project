@@ -7,19 +7,24 @@
 
 body{
     width: 100vw;
-    height: 100 vh;
+    height: 150 vh;
     background-color: whitesmoke;
 
 }
 
 main{
     width: 90%;
-    border: 1px solid white;
+   /* border: 1px solid white;*/
     margin: 0 auto;
 }
 
 .list{
-    padding: 3rem;
+    padding: 2rem;
+    padding-top: 100px;
+}
+
+.search-form {
+    padding-top: 125px;
 }
 
 .line{
