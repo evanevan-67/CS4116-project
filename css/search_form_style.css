@@ -1,0 +1,36 @@
+.dropdown {
+    display: flex; /* Enable flexbox for the dropdown container */
+  justify-content: center; /* Center elements horizontally */
+  align-items: center; /* Center elements vertically (optional) */
+  }
+  
+  .dropdown-content {
+    display: none; /* Hide content by default */
+    position: absolute; /* Position relative to the button */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1; /* Ensure content is on top of other elements */
+    border-radius: 5px; /* Add rounded corners */
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block; /* Show content on hover */
+
+  }
+
+  .dropbtn{
+    background-color: #ce5b98; /* Set button background color */
+  color: white; /* Set button text color */
+  padding: 16px 20px; 
+  font-size: 16px; 
+  border: none; 
+  cursor: pointer; 
+  border-radius: 5px; 
+  }
+  
+  .centered-table {
+    margin: 0 auto; /* Center the table horizontally */
+    width: fit-content; /* Adjust width as needed */
+  }
