@@ -36,13 +36,17 @@
                     header("Location: myprofile.php");
                 } else {
                     "Your file is too big!";
+                    header('Refresh: 10; URL=myprofile.php');
                 }
 
             } else {
                 echo "There was an error uploading your file!";
+                header('Refresh: 10; URL=myprofile.php');
+
             }
         } else {
             echo "You cannot upload files of this type!";
+            header('Refresh: 10; URL=myprofile.php');
         }
     }
 

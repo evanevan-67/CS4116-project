@@ -27,10 +27,9 @@ $result = $stmt->get_result();
 
 if ($result && $result->num_rows > 0) {
     
-    echo $result->num_rows;
+    //echo $result->num_rows;
        $row = $result->fetch_assoc();
        $hashedPassword = $row['password']; // Get the stored hashed password
-       echo 2;
        // Verify password
        if (password_verify($password, $hashedPassword)) {
       
@@ -40,10 +39,13 @@ if ($result && $result->num_rows > 0) {
          exit;
        } else {
          echo "Invalid email or password ";
+         header('Refresh: 10; URL=index.html');
+
        }
      } else {
        
        echo "Login failed. ";
+       header('Refresh: 10; URL=index.html');
      }
     
     
