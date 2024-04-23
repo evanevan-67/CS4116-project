@@ -53,7 +53,7 @@
             $chatid = $row['chatid'];
             $other_user = ($row['user1id'] == $userid) ? $row['user2id'] : $row['user1id'];
             
-            $query = "SELECT name FROM profiles WHERE userid = $other_user";
+            $query = "SELECT name, profilepic FROM profiles WHERE userid = $other_user";
             $result2 = mysqli_query($conn, $query);
             
             if ($result2) {
@@ -64,7 +64,15 @@
             }
 
             //echo "<li><a href='populate_chat.php?chatid=$chatid'>$other_user_name</a></li>";
-            echo "<li><a href='messages.php?chatid=$chatid' onclick='setChatId($chatid)'>$other_user_name</a></li>";
+            // echo "<li><a href='messages.php?chatid=$chatid' onclick='setChatId($chatid)'>$other_user_name</a></li>";
+            echo "<li class='contact-item'>
+                    <a href='messages.php?chatid=$chatid' onclick='setChatId($chatid)'>
+                        <img src='" . $row2['profilepic'] . "' alt='Profile Picture' class='profile-picture' onerror=\"this.src='Images/ProfilePlaceholder.PNG'\">
+                        <span class='contact-name'>$other_user_name</span>
+                    </a>
+                </li>";
+ 
+
 
         }
 

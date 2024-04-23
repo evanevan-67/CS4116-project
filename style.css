@@ -707,3 +707,26 @@ background-color: #d74e83;
 .signupForm button:hover {
   background-color: #d74e83; /* Darker green on hover */
 }
+
+.contact-item {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.contact-item a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.contact-name {
+  font-weight: bold;
+}
