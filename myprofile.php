@@ -108,11 +108,53 @@
             <p>My photos</p>
         </div>
         <div class="photoslist">
-            <img src="Images/ProfilePlaceholder.PNG">
-            <img src="Images/ProfilePlaceholder.PNG">
-            <img src="Images/ProfilePlaceholder.PNG">
+
+            <?php
+        include 'db_connect.php';
+
+        $user_id = $_SESSION['userid'];
+        
+        $query = "SELECT photo1, photo2, photo3 FROM profiles WHERE userid = $user_id";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
+        if (empty($row['photo1'])){
+            echo '<img src="Images/ProfilePlaceholder.PNG">';
+        } else {
+            echo '<img src="' . $row['photo1'] . '">';
+        }
+        if (empty($row['photo2'])){
+            echo '<img src="Images/ProfilePlaceholder.PNG">';
+        } else {
+            echo '<img src="' . $row['photo2'] . '">';
+        }
+        if (empty($row['photo3'])){
+            echo '<img src="Images/ProfilePlaceholder.PNG">';
+        } else {
+            echo '<img src="' . $row['photo3'] . '">';
+        }
+
+        mysqli_close($conn);
+        ?>
+
         </div>
-        <button id="editmyphotos">Edit My Photos</button>
+               
+        <form action="upload_image2.php" method="POST" enctype="multipart/form-data" class="profile-photo-form">
+    <label for="file2" class="file-label">
+        <span class="file-icon">+</span> Choose a photo
+    </label>
+    <input type="file" id="file2" name="file" class="file-input">
+    <br>
+    <!-- Select option -->
+    <label for="select-number">Select photo number</label>
+    <select id="select-number" name="number">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+
+    <button type="submit" name="submit" class="upload-button">Upload</button>
+</form>
+
 
     </div>
     <div class="myinterests">
