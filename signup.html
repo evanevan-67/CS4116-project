@@ -13,18 +13,25 @@
     </a>
     <!--<input type="text" placeholder="Search...">-->
     <a href="aboutus.html">About Us</a>
-    <a href="myprofile.php">My Profile</a>
-    <a href="exploreprofiles.php">Explore</a>
-    <a href="messages.php">Messages</a>
+    <!--<a href="exploreprofiles.php">Explore</a>
+    <a href="messages.php">Messages</a>-->
+    
+
+
+
+
     
   </div>
     </div>
-    <form action="/signup.php" method="post" id="signupForm" onsubmit="return validateAge()">
+    <form action="/signup.php" method="post" id="signupForm" onsubmit="return validateForm()" class="signupForm">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="placeholder@intrysts.ie" required><br>
         
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required><br>
+
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" required><br>
         
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Your name" required><br>
@@ -63,6 +70,12 @@
       </div>
   </footer>
   <script>
+
+    function validateForm() {
+        var result = validateAge() && validatePassword(); // Call validatePassword() here and store the result
+        return result; // Return the final result
+    }
+
     function validateAge() {
         // Get the value of the date of birth input
         var dob = document.getElementById('dob').value;
@@ -82,6 +95,18 @@
             return false; // Prevent form submission
         }
         
+        return true; // Allow form submission
+    }
+
+    function validatePassword() {
+        var password = document.getElementById("password").value;
+        var confirm_password = document.getElementById("confirm_password").value;
+        
+        if (password !== confirm_password) {
+            console.log("Passwords do not match!"); // Log the message to console
+            return false; // Prevent form submission
+        }
+        console.log("Passwords match!"); // Log the message to console
         return true; // Allow form submission
     }
   </script>
