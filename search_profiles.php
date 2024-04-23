@@ -36,7 +36,7 @@ $selected_interests_count = count($selected_interests);
 //echo "Selected Interests Count: " . $selected_interests_count . "<br>"; // Echo the count of selected interests
 
 // Construct the SQL query
-$query = "SELECT p.userid, p.name, p.dob, p.occupation, p.location 
+$query = "SELECT p.userid, p.name, p.dob, p.occupation, p.location, p.profilepic 
           FROM profiles p
           INNER JOIN userinterests ui ON p.userid = ui.userid
           WHERE p.gender = '$interestedIn' AND ui.interestid IN ($placeholders)
@@ -53,6 +53,7 @@ if ($result) {
             echo '<div class="line">';
             echo '<a href="profileview.php?profileid=' . $row['userid'] . '">';
             echo '<div class="user">';
+            echo '<div class="profile"><img src="' . $row['profilepic'] . '" alt="Profile Picture" class="profile-picture"></div>';
             echo '<div class="details">';
             echo '<div class="name">' . $row['name'] . '</div>';
             // Calculating age from date of birth

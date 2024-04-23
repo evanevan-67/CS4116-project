@@ -36,7 +36,7 @@ if(mysqli_num_rows($result2) > 0) {
         echo '<div class="line">';
         echo '<a href="profileview.php?profileid=' . $row['userid'] . '">';
         echo '<div class="user">';
-        // echo '<div class="profile"><img src="' . $row['profilepicture'] . '" alt="Profile Picture" class="profile-picture"></div>';
+        echo '<div class="profile"><img src="' . $row['profilepic'] . '" alt="Profile Picture" class="profile-picture"></div>';
         echo '<div class="details">';
         echo '<div class="name">' . $row['name'] . '</div>';
       // Calculating age from date of birth
