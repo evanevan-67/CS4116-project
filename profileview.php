@@ -187,7 +187,7 @@
             }
             mysqli_close($conn);
         ?>
-        <button id="blockbutton">Block/Report</button>
+        <button id="blockbutton">Report User</button>
     </div>
 
 
