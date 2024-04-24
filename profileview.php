@@ -187,7 +187,16 @@
             }
             mysqli_close($conn);
         ?>
-        <button id="blockbutton">Report User</button>
+        
+
+        <?php
+            echo '<a href="report_user.php?profileid=' . $profileid . '">';
+            echo '<button id="blockbutton">Report User</button>';
+            echo '</a>';
+        ?>
+
+
+
     </div>
 
 

@@ -730,3 +730,15 @@ background-color: #d74e83;
 .contact-name {
   font-weight: bold;
 }
+
+.reportform {
+
+  max-width: 400px; /* Limit width of login container */
+  margin: 50px auto; /* Center the container */
+  padding: 20px; /* Add padding */
+  padding-top: 140px;
+  background-color: #d581a128; /* White background */
+  border-radius: 8px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  text-align: center; /* Center content */
+  }
