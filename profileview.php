@@ -35,7 +35,22 @@
     ?>
     
     <div class="profilephoto">
-        <img src="Images/ProfilePlaceholder.PNG">
+    <?php
+        include 'db_connect.php';
+
+        $profile_id = $_GET['profileid']; 
+        
+        $query = "SELECT profilepic FROM profiles WHERE userid = $profile_id";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
+        if (empty($row['profilepic'])){
+            echo '<img src="Images/ProfilePlaceholder.PNG">';
+        } else {
+            echo '<img src="' . $row['profilepic'] . '">';
+        }
+
+        mysqli_close($conn);
+        ?>
     </div>
     <?php
     // Include the database connection file
@@ -58,16 +73,40 @@
         </div>
         <?php mysqli_close($conn);
         ?>
-    <div class="photos">
-        <div id="photosheader">
+    <div class="myphotos">
+        <div id="myphotosheader">
             <p>Photos</p>
         </div>
         <div class="photoslist">
-            <img src="Images/ProfilePlaceholder.PNG">
-            <img src="Images/ProfilePlaceholder.PNG">
-            <img src="Images/ProfilePlaceholder.PNG">
-        </div>
 
+        <?php
+        include 'db_connect.php';
+
+        
+        
+        $query = "SELECT photo1, photo2, photo3 FROM profiles WHERE userid = $profile_id";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
+        if (empty($row['photo1'])){
+            echo '<img src="Images/ProfilePlaceholder.PNG">';
+        } else {
+            echo '<img src="' . $row['photo1'] . '">';
+        }
+        if (empty($row['photo2'])){
+            echo '<img src="Images/ProfilePlaceholder.PNG">';
+        } else {
+            echo '<img src="' . $row['photo2'] . '">';
+        }
+        if (empty($row['photo3'])){
+            echo '<img src="Images/ProfilePlaceholder.PNG">';
+        } else {
+            echo '<img src="' . $row['photo3'] . '">';
+        }
+
+        mysqli_close($conn);
+        ?>
+
+        </div>
     </div>
     <div class="interests">
         <div id="interestsheader">
