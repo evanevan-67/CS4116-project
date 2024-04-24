@@ -29,7 +29,7 @@
     <h2>Submit a Report</h2>
     <?php
         $userid = $_SESSION['userid'];
-        $reportedid = $GET['profileid'];
+        $reportedid = $_GET['profileid'];
 
         echo "<input type='hidden' name='userid' value='$userid'>";
         echo "<input type='hidden' name='reportedid' value='$reportedid'>";

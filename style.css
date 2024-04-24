@@ -742,3 +742,7 @@ background-color: #d74e83;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
   text-align: center; /* Center content */
   }
+
+  .reporttable {
+    padding-top: 140px;
+}

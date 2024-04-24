@@ -29,7 +29,6 @@ view + edit Profile (remove profiles) enter userid
 <?php
 
 include 'db_connect.php';
-// Assuming you have already connected to your database
 
 // Function to mark a report as resolved
 function markReportResolved($conn, $reportid) {
@@ -56,7 +55,7 @@ if (!$result) {
 }
 
 // Display the table
-echo "<form method='post'>";
+echo "<form class='reporttable' method='post'>";
 echo "<table border='1'>
 <tr>
 <th>Report ID</th>
