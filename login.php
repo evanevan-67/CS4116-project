@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Prepare SQL statement to prevent SQL injection
 // Prepare SQL statement with placeholder for email
-$stmt = $conn->prepare("SELECT userid, password FROM users WHERE email = ?");
+$stmt = $conn->prepare("SELECT userid, password, admin FROM users WHERE email = ?");
 $stmt->bind_param('s', $email); // Bind parameter using 's' for string
 
 // Execute the statement
@@ -35,7 +35,12 @@ if ($result && $result->num_rows > 0) {
       
          $_SESSION['userid'] = $row['userid'];
          session_regenerate_id(true);
-         header("Location: /myprofile.php");
+
+        if ($row['admin'] == 1){
+          header("Location: /admindashboard.php");
+        } else {
+          header("Location: /myprofile.php");
+        }
          exit;
        } else {
          echo "Invalid email or password ";
