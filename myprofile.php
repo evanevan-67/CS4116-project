@@ -190,23 +190,25 @@
         </div>
         <!--Add Interests? Select list?-->
         <form action="add_interests.php" method="post" class="interests-form">
-    <div class="form-group">
-        <label for="interests" class="form-label">Select your interests:</label><br>
-        <select name="interests[]" id="interests" multiple class="form-select">
-            <?php
-            include 'db_connect.php';
-
-            //$user_id = $_SESSION['userid']; 
-            $sql = "SELECT interestid, name FROM interests";
-            $result = mysqli_query($conn, $sql);
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<option value='{$row['interestid']}'>{$row['name']}</option>";
-            }
-            ?>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Add Interests</button>
-</form>
+            <div class="form-group">
+                <label for="interests" class="form-label">Select your interests:</label><br>
+                <select name="interests[]" id="interests" multiple class="form-select">
+                    <?php
+                    include 'db_connect.php';
+        
+                    //$user_id = $_SESSION['userid']; 
+                    $sql = "SELECT interestid, name FROM interests";
+                    $result = mysqli_query($conn, $sql);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<option value='{$row['interestid']}'>{$row['name']}</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+            <button type="submit" name="add_interests" class="btn btn-primary">Add Interests</button>
+            <button type="submit" name="remove_interests" formaction="remove_interests.php" class="btn btn-danger">Remove Interests</button>
+        </form>
+        
     </div>
     <div class="aboutme">
         <div id="aboutmeheader">

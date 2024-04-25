@@ -32,8 +32,7 @@ if (isset($_POST['interests']) && is_array($_POST['interests'])) {
                 echo "Error: " . mysqli_error($conn);
             }
         }
-    }
-} else {
+    } else {
     echo "Please select at least one interest.";
 }
 
