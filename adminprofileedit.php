@@ -112,6 +112,17 @@
         mysqli_close($conn);
         ?>
 
+    <form method="GET" action="clear_photo.php">
+    <input type="hidden" name="profileid" value="<?php echo $profile_id; ?>">
+    <label for="select-number">Select photo number</label>
+    <select id="select-number" name="number">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+    <input type="submit" value="Clear Photo">
+    </form>
+
         </div>
     </div>
     <div class="interests">
