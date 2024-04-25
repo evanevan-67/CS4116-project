@@ -86,7 +86,13 @@ echo "</form>";
 mysqli_close($conn);
 ?>
 
-
+    <h2>Enter Profile ID</h2>
+    <form method="GET" action="adminprofileedit.php">
+        <label for="profileid">Profile ID:</label>
+        <input type="number" id="profileid" name="profileid" required>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
 
 
     <footer>
