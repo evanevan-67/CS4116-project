@@ -15,16 +15,26 @@ if ($row = mysqli_fetch_assoc($result)) {
 } else {
     echo "no value found for interestedin";
 }
+//echo 1;
+$today = new DateTime();
+//echo 2;
+// Calculate the minimum birthdate based on the maximum age
+$minBirthdate = (clone $today)->modify("-$maxAge years");
+////echo 3;
+// Calculate the maximum birthdate based on the minimum age
+$maxBirthdate = (clone $today)->modify("-$minAge years");
+//echo 4;
+
+// Output the range of birthdates
+//echo "Minimum Birthdate: " . $minBirthdate->format('Y-m-d') . "<br>";
+//echo "Maximum Birthdate: " . $maxBirthdate->format('Y-m-d');
 
 
-//commenting out profile picture stuff until we sort that later
+//echo 5;
 
-
-
-
-$query2 = "SELECT userid, name, dob, occupation, location FROM profiles WHERE gender = ?";
+$query2 = "SELECT * FROM profiles WHERE gender = ? AND dob BETWEEN ? AND ?";
 $stmt2 = mysqli_prepare($conn, $query2);
-mysqli_stmt_bind_param($stmt2, "s", $interestedIn);
+mysqli_stmt_bind_param($stmt2, "sss", $interestedIn, $minBirthdate->format('Y-m-d'), $maxBirthdate->format('Y-m-d'));
 mysqli_stmt_execute($stmt2);
 $result2 = mysqli_stmt_get_result($stmt2);
 
