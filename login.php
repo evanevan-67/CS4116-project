@@ -15,22 +15,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $stmt = $conn->prepare("SELECT userid, password, admin FROM users WHERE email = ?");
 $stmt->bind_param('s', $email); // Bind parameter using 's' for string
 
-// Execute the statement
+
 $stmt->execute();
 
-// Get result set
+
 $result = $stmt->get_result();
 
-// Proceed with further operations
+
 
 
 
 if ($result && $result->num_rows > 0) {
     
-    //echo $result->num_rows;
+    /
        $row = $result->fetch_assoc();
-       $hashedPassword = $row['password']; // Get the stored hashed password
-       // Verify password
+       $hashedPassword = $row['password']; 
+       
        if (password_verify($password, $hashedPassword)) {
       
          $_SESSION['userid'] = $row['userid'];
@@ -43,14 +43,17 @@ if ($result && $result->num_rows > 0) {
         }
          exit;
        } else {
-         echo "Invalid email or password ";
-         header('Refresh: 10; URL=index.html');
-
+         
+         echo "<script>alert('Incorrect email or password!');</script>";
+         echo "<script>location.href = 'index.html';</script>";
+         exit; 
        }
      } else {
        
-       echo "Login failed. ";
-       header('Refresh: 10; URL=index.html');
+       
+       echo "<script>alert('Login failed.');</script>";
+       echo "<script>location.href = 'index.html';</script>";
+       exit; 
      }
     
     
