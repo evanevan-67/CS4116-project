@@ -429,8 +429,10 @@ margin-top: 10px; /* Add spacing */
 
 #editdetails:hover,
 #editmyphotos:hover {
-background-color: #d581a1; /* Darker green on hover */
+background-color: #d581a1; /* Darker colour on hover */
 }
+
+
 
 .interests-form {
 width: 300px;
@@ -622,18 +624,42 @@ z-index: 1;
 #updateForm {
 margin-bottom: 5px;
 padding: 5px 10px;
+width: 35%;
 background-color: #d581a1;
 color: #fff;
 border: none;
 border-radius: 5px;
 cursor: pointer;
 transition: background-color 0.3s ease;
+
 }
 
 #updateForm:hover {
 background-color: #d74e83;
 }
 
+.updateInput {
+  padding: 5px; 
+  width: 0.5px;
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  transition: width 0.1s ease-in-out;
+}
+
+.updateInput:hover{
+
+  width: 25%;
+
+}
+
+.updateButton {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.updateButton:hover{
+  background-color:pink;
+}
 
 .matchsuccess {
       background-color: #00FF00;

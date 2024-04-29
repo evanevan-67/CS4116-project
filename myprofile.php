@@ -80,19 +80,19 @@
             <div id="location"><?php echo $row['location']; ?></div>
             <div id="occupation"><?php echo $row['occupation']; ?></div>
 
-            <form action="update_occupation.php" method="post" id="updateForm"">
+            <form action="update_occupation.php" method="post" id="updateForm">
                
         <label for="occupation">Occupation</label>
-        <input type="text" id="occupation" name="occupation" placeholder="Your occupation" required><br>
+        <input type="text" id="occupation" name="occupation" placeholder="Your occupation" required class = "updateInput"><br>
        
-        <button type="submit">Update Occupation</button>
+        <button type="submit" class = "updateButton">Update</button>
     </form>
-    <form action="update_location.php" method="post" id="updateForm"">
+    <form action="update_location.php" method="post" id="updateForm">
          
         <label for="location">Location</label>
-        <input type="text" id="location" name="location" placeholder="Your location" required><br>
+        <input type="text" id="location" name="location" placeholder="Your location" required class = "updateInput"><br>
         
-        <button type="submit">Update Location</button>
+        <button type="submit" class = "updateButton">Update</button>
     </form>
 
 
