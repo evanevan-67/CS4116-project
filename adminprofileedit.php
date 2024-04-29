@@ -154,6 +154,17 @@
             <input type="submit" value="Clear About Me">
             </form>
     </div>
+
+
+
+    <div class="delete-user">
+        <form method="GET" action="delete_user.php">
+            <input type="hidden" name="profileid" value="<?php echo $profile_id; ?>">
+            
+            <input type="submit" value="Delete User Account">
+            </form>
+
+    </div>
     
 
 

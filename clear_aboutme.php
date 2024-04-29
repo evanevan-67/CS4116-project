@@ -4,7 +4,7 @@ include 'db_connect.php';
 $profileid = $_GET['profileid'];
 
 
-// Update photo? column to be blank
+// Update aboutme column to be blank
 $sql = "UPDATE profiles SET aboutme = '' WHERE userid = '{$profileid}'";
 
 mysqli_query($conn, $sql); // Execute the query using mysqli
