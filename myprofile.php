@@ -79,7 +79,8 @@
                                     echo $year;?></div>
             <div id="location"><?php echo $row['location']; ?></div>
             <div id="occupation"><?php echo $row['occupation']; ?></div>
-
+        </div>
+        <div class="updatemydetails">
             <form action="update_occupation.php" method="post" id="updateForm">
                
         <label for="occupation">Occupation</label>
