@@ -125,38 +125,7 @@
 
         </div>
     </div>
-    <div class="interests">
-        <div id="interestsheader">
-            <p>Intrysts</p>
-        </div>
-        <div id="interests">
-            <!--Nine interests go here-->
-            <ul>
-            <?php
-            include 'db_connect.php';
-            
-            $query =    "SELECT interests.name
-                        FROM userinterests
-                        INNER JOIN interests ON userinterests.interestid = interests.interestid
-                        WHERE userinterests.userid = $profile_id";
-            
-            $result = mysqli_query($conn, $query);
-            
-            if ($result) {
-        
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<li>{$row['name']}</li>";
-
-                }
-                
-            } else {
-            echo "Error: " . mysqli_error($connection);
-            }
-
-            ?>
-            </ul>
-        </div>
-    </div>
+    
     <div class="aboutme">
         <div id="aboutmeheader">
             <p>About Me</p>
@@ -179,81 +148,13 @@
             echo "Error: " . mysqli_error($connection);
             }
         ?>
+        <form method="GET" action="clear_aboutme.php">
+            <input type="hidden" name="profileid" value="<?php echo $profile_id; ?>">
+            
+            <input type="submit" value="Clear About Me">
+            </form>
     </div>
-    <div class="Intrysted">
-        <p>Are you Intrysted in 
-            <?php
-            include 'db_connect.php';
-            
-            $query = "SELECT name FROM profiles WHERE userid = $profile_id";
-            
-            $result = mysqli_query($conn, $query);
-            
-            if ($result) {
-        
-                $row = mysqli_fetch_assoc($result);
-                echo "{$row['name']}";
-
-                
-                
-            } else {
-            echo "Error: " . mysqli_error($connection);
-            }
-        ?></p>
-        <div class="connectionbox">
-
-        <form action="connection.php" method="get">
-        	<input type="hidden" name="profileid" value="<?php echo $profile_id; ?>">
-            <input type="hidden" name="connection" value="1">
-            <button type="submit"><img src="Images/tickbox.jpg"></button>
-        </form>
-        <form action="connection.php" method="get">
-        	<input type="hidden" name="profileid" value="<?php echo $profile_id; ?>">
-            <input type="hidden" name="connection" value="0">
-            <button type="submit"><img src="Images/xbox.jpg"></button>
-        </form>
-        
-            <!--Positive and negative boxes?-->
-        </div>
-    </div>
-    <div class="matchstatussection">
-        <h1 class="matchstatusheader">Match Status</h1>
-
     
-        <?php
-            include 'db_connect.php';
-
-            $userid = $_SESSION['userid'];
-            $profileid = $_GET['profileid'];
-
-
-
-            $sql = "SELECT connectionstatus FROM connections WHERE (user1id = $userid OR user2id = $userid) AND (user1id = $profileid OR user2id = $profileid)";
-            $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($result);
-
-            // echo  $row['connectionstatus'];
-            
-            if ($row['connectionstatus'] == 1 ){
-                
-                echo '<p class="matchsuccess">It\'s a match!</div>';
-                echo '<a class="matchlink" href="messages.php">Message me!</a>';
-            } else {
-                echo '<p class="unknownmatch">Unknown</div>';
-            }
-            mysqli_close($conn);
-        ?>
-        
-
-        <?php
-            echo '<a href="report_user.php?profileid=' . $profileid . '">';
-            echo '<button id="blockbutton">Report User</button>';
-            echo '</a>';
-        ?>
-
-
-
-    </div>
 
 
     <footer>
