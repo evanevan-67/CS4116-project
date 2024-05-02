@@ -3,7 +3,7 @@ body {
 }
 
 .navbar {
-background-color: #d581a1; /* Background color */
+background-color: #d581a1; 
 overflow: hidden;
 top: 0;
 width: 100%;
@@ -15,7 +15,7 @@ z-index: 1000;
 }
 
 .navbar img {
-height: 50px; /* Adjust height as needed */
+height: 50px; 
 padding: 5px;
 }
 
@@ -29,7 +29,7 @@ border-radius: 4px;
 .navbar button {
 padding: 5px;
 margin: 5px 0;
-background-color: #dd6b97; /* Green */
+background-color: #dd6b97; 
 color: white;
 border: none;
 border-radius: 4px;
@@ -108,39 +108,39 @@ padding: 10px;
 border-left: 1px solid #ccc;
 }
 
-/* Styling for messages sent by the current user */
+
 .sent-by-user {
 background-color: #d581a1; 
 color: #fad2e0; 
-padding: 8px 12px; /* Padding around the message */
-border-radius: 10px; /* Rounded corners */
-margin-bottom: 10px; /* Margin between messages */
-max-width: 70%; /* Maximum width for the message box */
-align-self: flex-end; /* Right-align messages */
+padding: 8px 12px;
+border-radius: 10px; 
+margin-bottom: 10px; 
+max-width: 70%; 
+align-self: flex-end; 
 }
 
-/* Styling for messages sent by other users */
+
 .sent-by-others {
 background-color: #fad2e0;
 color: #d581a1; 
-padding: 8px 12px; /* Padding around the message */
-border-radius: 10px; /* Rounded corners */
-margin-bottom: 10px; /* Margin between messages */
-max-width: 70%; /* Maximum width for the message box */
-align-self: flex-start; /* Left-align messages */
+padding: 8px 12px; 
+border-radius: 10px; 
+margin-bottom: 10px; 
+max-width: 70%; 
+align-self: flex-start;
 }
 
-/* Chat list styles */
+
 
 
 .chat-list {
 border-radius: 5px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 position: fixed;
-top: 100px; /* Adjust based on navbar height */
+top: 100px; 
 left: 0;
 bottom: 0;
-width: 250px; /* Adjust based on your preference */
+width: 250px; 
 background-color: #d581a1;
 padding: 20px;
 box-sizing: border-box;
@@ -162,7 +162,7 @@ margin-bottom: 10px;
 }
 
 .chat-list li a {
-color: #007bff; /* Blue link color */
+color: #007bff; 
 text-decoration: none;
 }
 
@@ -170,50 +170,50 @@ text-decoration: none;
 text-decoration: underline;
 }
 
-/* Chat box styles */
+
 .chat-box {
 position: fixed;
 top: 100px;
-background-color: #ffffff; /* White background */
+background-color: #ffffff;
 padding: 20px;
 margin-top: 20px;
 border-radius: 5px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
-max-height: 300px; /* Set max height for scroll */
-overflow-y: auto; /* Enable vertical scroll */
-margin-left: 270px; /* Adjust based on chat-list width */
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+max-height: 300px; 
+overflow-y: auto; 
+margin-left: 270px; 
 box-sizing: border-box;
 width: 75%;
 height: 400px;
 }
 
-/* Message input styles */
+
 .message-input {
 position: fixed;
 top: 450px;
 width: 50%;
-background-color: #ffffff; /* White background */
+background-color: #ffffff; 
 border-radius: 5px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 box-sizing: border-box;
 }
 
 .message-input h2 {
 margin-bottom: 10px;
-color: #333333; /* Dark gray text */
+color: #333333; 
 }
 
 .message-input textarea {
 width: 100%;
-resize: none; /* Prevent textarea resize */
+resize: none;
 padding: 10px;
 border-radius: 5px;
-border: 1px solid #d581a1; /* Light gray border */
+border: 1px solid #d581a1; 
 margin-bottom: 10px;
 }
 
 .message-input input[type="submit"] {
-background-color: #d581a1; /* Blue submit button */
+background-color: #d581a1; 
 color: white;
 padding: 10px 20px;
 border: none;
@@ -222,254 +222,252 @@ cursor: pointer;
 }
 
 .message-input input[type="submit"]:hover {
-background-color: #d43572; /* Darker blue on hover */
+background-color: #d43572; 
 }
 
 
-/* Login Form Styles */
+
 
 .login {
 
-max-width: 400px; /* Limit width of login container */
-margin: 50px auto; /* Center the container */
-padding: 20px; /* Add padding */
+max-width: 400px; 
+margin: 50px auto; 
+padding: 20px; 
 padding-top: 140px;
-background-color: #d581a128; /* White background */
-border-radius: 8px; /* Add rounded corners */
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-text-align: center; /* Center content */
+background-color: #d581a128; 
+border-radius: 8px; 
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+text-align: center; 
 }
 
 .login img {
-width: 60%; /* Adjust profile image size */
-border-radius: 50%; /* Make the image circular */
-margin-bottom: 20px; /* Add spacing below the image */
+width: 60%; 
+border-radius: 50%; 
+margin-bottom: 20px; 
 }
 
 .loginDetails label {
-display: block; /* Display labels as blocks */
-margin-bottom: 10px; /* Add spacing between labels and inputs */
-font-weight: bold; /* Make labels bold */
+display: block; 
+margin-bottom: 10px; 
+font-weight: bold; 
 }
 
 .loginDetails input[type="email"],
 .loginDetails input[type="password"],
 .loginDetails input[type="submit"] {
-width: 100%; /* Take up full width of container */
-padding: 10px; /* Add padding */
-margin-bottom: 20px; /* Add spacing between inputs */
-border: 1px solid #d581a1; /* Add border */
-border-radius: 4px; /* Add rounded corners */
-box-sizing: border-box; /* Include padding and border in width calculation */
+width: 100%; 
+padding: 10px; 
+margin-bottom: 20px; 
+border: 1px solid #d581a1; 
+border-radius: 4px; 
+box-sizing: border-box; 
 }
 
 .loginDetails input[type="submit"] {
-background-color: #d581a1; /* Green submit button */
-color: #fad2e0; /* White text color */
-cursor: pointer; /* Show pointer cursor on hover */
-transition: background-color 0.3s; /* Add smooth transition */
+background-color: #d581a1; 
+color: #fad2e0; 
+cursor: pointer; 
+transition: background-color 0.3s; 
 }
 
 .loginDetails input[type="submit"]:hover {
-background-color: #e5578e; /* Darker green on hover */
+background-color: #e5578e; 
 }
 
 .login a {
-color: #d581a1; /* Green text color for sign up link */
-text-decoration: none; /* Remove underline from link */
+color: #d581a1; 
+text-decoration: none; 
 }
 
 .login a:hover {
-text-decoration: underline; /* Underline link on hover */
+text-decoration: underline; 
 }
 
-/* Profile Photo Styles */
+
 .profilephoto {
-text-align: center; /* Center align profile photo */
-margin-top: 20px; /* Add spacing from navbar */
+text-align: center;
+margin-top: 20px; 
 padding-top: 100px;
 
 }
 
 .profilephoto img {
-width: 150px; /* Adjust profile photo size */
-border-radius: 50%; /* Make the image circular */
-border: 4px solid #d581a1; /* Add border with white background */
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+width: 150px; 
+border-radius: 50%; 
+border: 4px solid #d581a1; 
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
-/* Upload Image Form Styles */
 .upload-form {
-text-align: center; /* Center align form */
-margin-top: 20px; /* Add spacing */
+text-align: center; 
+margin-top: 20px; 
 }
 
 .upload-form input[type="file"] {
-margin-bottom: 10px; /* Add spacing between input and button */
+margin-bottom: 10px; 
 }
 
-/* Profile Details Styles */
+
 .mydetails {
-margin-top: 20px; /* Add spacing from profile photo */
+margin-top: 20px; 
 text-align: center;
 margin-bottom: 50px;
 }
 
 .mydetails > #name {
- display: inline-block; /* Or use float as needed */
-  margin-right: 10px;  /* Add spacing between items (optional) */
+ display: inline-block; 
+  margin-right: 10px;  
 }
 
 .mydetails > #age {
- display: inline-block; /* Or use float as needed */
-  margin-right: 10px;  /* Add spacing between items (optional) */
+ display: inline-block; 
+  margin-right: 10px;  
 }
 
 .mydetails > #location {
- display: inline-block; /* Or use float as needed */
-  margin-right: 10px;  /* Add spacing between items (optional) */
+ display: inline-block; 
+  margin-right: 10px;  
 }
 
 .mydetails > #occupation {
- display:inline-block; /* Or use float as needed */
-  margin-right: 10px;  /* Add spacing between items (optional) */
+ display:inline-block; 
+  margin-right: 10px;  
 }
 
 .updatemydetails{
-    margin-top: 20px; /* Add spacing from profile photo */
+    margin-top: 20px; 
 text-align: center;
 margin-bottom: 50px;
 }
 .update_occupation{
-    display:inline-block; /* Or use float as needed */
-  margin-right: 10px;  /* Add spacing between items (optional) */
+    display:inline-block; 
+  margin-right: 10px;  
 }
 
 .update_location{
-    display:inline-block; /* Or use float as needed */
-  margin-right: 10px;  /* Add spacing between items (optional) */
+    display:inline-block; 
+  margin-right: 10px;  
 }
 
 
 .updatemydetails #editdetails {
-background-color: #d581a1; /* Green background color */
-color: #fff; /* White text color */
-border: none; /* Remove border */
-padding: 10px 20px; /* Add padding */
-border-radius: 4px; /* Add rounded corners */
-cursor: pointer; /* Add cursor pointer */
-margin-top: 10px; /* Add spacing from details */
+background-color: #d581a1; 
+color: #fff; 
+border: none; 
+padding: 10px 20px; 
+border-radius: 4px; 
+cursor: pointer; 
+margin-top: 10px; 
 }
 
 /* My Photos Styles */
 .myphotos {
-margin-top: 20px; /* Add spacing from details */
-text-align: center; /* Center align photos */
+margin-top: 20px; 
+text-align: center; 
 }
 
 .myphotosheader {
-background-color: #d581a1; /* Green background color */
-color: #fff; /* White text color */
-padding: 10px 0; /* Add padding */
+background-color: #d581a1; 
+color: #fff; 
+padding: 10px 0; 
 }
 
 .photoslist {
-display: flex; /* Use flexbox for layout */
-justify-content: center; /* Center align photos */
-flex-wrap: wrap; /* Allow photos to wrap to next line */
-gap: 10px; /* Add spacing between photos */
+display: flex; 
+justify-content: center; 
+flex-wrap: wrap; 
+gap: 10px; 
 }
 
 .myphotos img {
-width: 100px; /* Adjust photo size */
-height: 100px; /* Adjust photo size */
-object-fit: cover; /* Maintain aspect ratio */
-border-radius: 8px; /* Add rounded corners */
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+width: 100px; 
+height: 100px; 
+object-fit: cover; 
+border-radius: 8px; 
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #editmyphotos {
-background-color: #d581a1; /* Green background color */
-color: #fff; /* White text color */
-border: none; /* Remove border */
-padding: 10px 20px; /* Add padding */
-border-radius: 4px; /* Add rounded corners */
-cursor: pointer; /* Add cursor pointer */
-margin-top: 10px; /* Add spacing from photos */
+background-color: #d581a1;
+color: #fff;
+border: none; 
+padding: 10px 20px; 
+border-radius: 4px; 
+cursor: pointer; 
+margin-top: 10px; 
 }
 
-/* My Interests Styles */
+
 .myinterests {
-margin-top: 20px; /* Add spacing from photos */
+margin-top: 20px; 
 }
 
 #interestsheader {
-background-color: #d581a1; /* Green background color */
-color: #fff; /* White text color */
-padding: 10px 0; /* Add padding */
+background-color: #d581a1; 
+color: #fff; 
+padding: 10px 0; 
 text-align: center;
 }
 
 #interests {
-list-style-type: none; /* Remove bullet points */
-padding: 0; /* Remove default padding */
-text-align: center; /* Center align interests */
+list-style-type: none; 
+padding: 0; 
+text-align: center; 
 }
 
 #interests li {
-display: inline-block; /* Display interests horizontally */
-margin: 5px; /* Add spacing between interests */
-padding: 5px 10px; /* Add padding */
-background-color: #f0f0f0; /* Light background color */
-border-radius: 20px; /* Add rounded corners */
+display: inline-block; 
+margin: 5px; 
+padding: 5px 10px; 
+background-color: #f0f0f0; 
+border-radius: 20px; 
 }
 
-/* About Me Styles */
 .aboutme {
-margin-top: 20px; /* Add spacing from interests */
-text-align: center; /* Center align about me */
+margin-top: 20px; 
+text-align: center; 
 }
 
 #aboutmeheader {
-background-color: #d581a1; /* Green background color */
-color: #fff; /* White text color */
-padding: 10px 0; /* Add padding */
+background-color: #d581a1; 
+color: #fff; 
+padding: 10px 0; 
 }
 
 .aboutme textarea {
-width: 100%; /* Take up full width */
-padding: 10px; /* Add padding */
-border-radius: 8px; /* Add rounded corners */
-border: 1px solid #d581a1; /* Add border */
-box-sizing: border-box; /* Include padding and border in width calculation */
-margin-top: 10px; /* Add spacing from header */
+width: 100%; 
+padding: 10px; 
+border-radius: 8px; 
+border: 1px solid #d581a1; 
+box-sizing: border-box; 
+margin-top: 10px; 
 }
 
 .aboutme input[type="submit"] {
-background-color: #d581a1; /* Green background color */
-color: #fff; /* White text color */
-border: none; /* Remove border */
-padding: 10px 20px; /* Add padding */
-border-radius: 4px; /* Add rounded corners */
-cursor: pointer; /* Add cursor pointer */
-margin-top: 10px; /* Add spacing from textarea */
+background-color: #d581a1; 
+color: #fff; 
+border: none; 
+padding: 10px 20px; 
+border-radius: 4px; 
+cursor: pointer; 
+margin-top: 10px; 
 }
 
-/* Edit Button Styles */
+
 #editdetails,
 #editmyphotos {
-background-color: #d581a1; /* Green background color */
-color: #fff; /* White text color */
-border: none; /* Remove border */
-padding: 10px 20px; /* Add padding */
-border-radius: 4px; /* Add rounded corners */
-cursor: pointer; /* Add cursor pointer */
-margin-top: 10px; /* Add spacing */
+background-color: #d581a1; 
+color: #fff; 
+border: none; 
+padding: 10px 20px; 
+border-radius: 4px; 
+cursor: pointer; 
+margin-top: 10px; 
 }
 
 #editdetails:hover,
 #editmyphotos:hover {
-background-color: #d581a1; /* Darker colour on hover */
+background-color: #d581a1; 
 }
 
 
@@ -567,7 +565,7 @@ background-color: #d74e83;
 
 }
 
-/* Footer styles */
+
 footer {
   background-color: #fad2e0;
   color: #d581a1;
@@ -625,7 +623,7 @@ cursor: pointer;
 }
 
 input[type=range]::-moz-range-thumb {
-/*-webkit-appearance: none;*/
+
 pointer-events: all;
 width: 24px;
 height: 24px;
@@ -742,20 +740,20 @@ background-color: #d74e83;
       border-radius: 5px;
   }
 
-  /* Style for the form container */
+
 .signupForm {
   max-width: 400px;
   margin: 0 auto;
   padding-top: 150px;
 }
 
-/* Style for labels */
+
 .signupForm label {
   display: block;
   margin-bottom: 5px;
 }
 
-/* Style for inputs */
+
 .signupForm input[type="email"],
 .signupForm input[type="password"],
 .signupForm input[type="text"],
@@ -769,11 +767,11 @@ background-color: #d74e83;
   box-sizing: border-box;
 }
 
-/* Style for button */
+
 .signupForm button {
   width: 100%;
   padding: 10px;
-  background-color: #d581a1; /* Bright green */
+  background-color: #d581a1; 
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -782,9 +780,9 @@ background-color: #d74e83;
   font-weight: bold;
 }
 
-/* Style for button on hover */
+
 .signupForm button:hover {
-  background-color: #d74e83; /* Darker green on hover */
+  background-color: #d74e83; 
 }
 
 .contact-item {
@@ -812,14 +810,14 @@ background-color: #d74e83;
 
 .reportform {
 
-  max-width: 400px; /* Limit width of login container */
-  margin: 50px auto; /* Center the container */
-  padding: 20px; /* Add padding */
+  max-width: 400px; 
+  margin: 50px auto; 
+  padding: 20px; 
   padding-top: 140px;
-  background-color: #d581a128; /* White background */
-  border-radius: 8px; /* Add rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  text-align: center; /* Center content */
+  background-color: #d581a128; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  text-align: center; 
   }
 
   .reporttable {

@@ -14,7 +14,7 @@ body{
 
 main{
     width: 90%;
-   /* border: 1px solid white;*/
+  
     margin: 0 auto;
 }
 
@@ -123,28 +123,28 @@ a{
 }
 
 .age-filter label {
-  display: none; /* Initially hide all labels */
+  display: none;
 }
 
 .age-filter input {
-  display: none; /* Initially hide input fields */
+  display: none; 
 }
 
 .age-filter reload-button {
-  display: none; /* Initially hide reload button */
+  display: none; 
 }
 
 .age-filter:hover input {
-  display: block; /* Show input fields on hover */
+  display: block; 
 }
 
 .age-filter:hover .reload-button {
-  display: inline-block; /* Show reload button on hover */
+  display: inline-block; 
 }
 
 .show-labels-button {
   display: inline-block;
-  margin-right: 0.5rem; /* Add a right margin */
+  margin-right: 0.5rem; 
     background-color: pink;
     color: white;
     padding: 0.4rem 0.8rem;
@@ -153,7 +153,7 @@ a{
 }
 
 .age-filter:hover .show-labels-button ~ label {
-  display: block; /* Show labels on hover */
+  display: block; 
  
 }
 
