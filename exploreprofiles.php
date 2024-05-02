@@ -52,19 +52,21 @@
     <?php include 'search_form.php'; ?>
     </div>
 
-    <br>
-    
-    <label for="min_age">Minimum Age:</label>
-<input type="number" id="min_age" name="min_age" min="18" max="120" value="<?php echo isset($_GET['minage']) ? $_GET['minage'] : '18'; ?>">
+    <div class="age-filter hover-show-labels">
+  
+  <button class="show-labels-button">Filter by age</button>
+  
+  <label for="min_age">Minimum Age:</label>
+  <input type="number" id="min_age" name="min_age" min="18" max="120" value="<?php echo isset($_GET['minage']) ? $_GET['minage'] : '18'; ?>">
 
-<label for="max_age">Maximum Age:</label>
-<input type="number" id="max_age" name="max_age" min="18" max="120" value="<?php echo isset($_GET['maxage']) ? $_GET['maxage'] : '120'; ?>">
+  <label for="max_age">Maximum Age:</label>
+  <input type="number" id="max_age" name="max_age" min="18" max="120" value="<?php echo isset($_GET['maxage']) ? $_GET['maxage'] : '120'; ?>">
 
 
-    <button onclick="reloadWithAgeRange()">Reload Page</button>
+  <button id = "reload-button" onclick="reloadWithAgeRange()">Reload Page</button>
 
-    <br>
 
+</div>
 
     <div class = "list">
         

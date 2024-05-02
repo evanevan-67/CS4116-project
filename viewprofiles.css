@@ -121,3 +121,39 @@ a{
     background-color: grey;
     margin: 0.3rem;
 }
+
+.age-filter label {
+  display: none; /* Initially hide all labels */
+}
+
+.age-filter input {
+  display: none; /* Initially hide input fields */
+}
+
+.age-filter reload-button {
+  display: none; /* Initially hide reload button */
+}
+
+.age-filter:hover input {
+  display: block; /* Show input fields on hover */
+}
+
+.age-filter:hover .reload-button {
+  display: inline-block; /* Show reload button on hover */
+}
+
+.show-labels-button {
+  display: inline-block;
+  margin-right: 0.5rem; /* Add a right margin */
+    background-color: pink;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 0.2rem;
+}
+
+.age-filter:hover .show-labels-button ~ label {
+  display: block; /* Show labels on hover */
+ 
+}
+
